@@ -16,7 +16,10 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
+from user_artist import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
+    path('page_artist/', views.user_artist_list),
+    path('login_artist/', views.login_user),
 ]
