@@ -1,0 +1,15 @@
+.custom-modal {
+  top: 10% !important;
+}
+
+.modal-title {
+  margin-left: 4em;
+}
+
+.form-container {
+  margin: 30px 40px 30px;
+}
+
+.space-between-label {
+  margin-top: 30px;
+}

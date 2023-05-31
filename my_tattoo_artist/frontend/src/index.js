@@ -2,16 +2,43 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
-import reportWebVitals from './reportWebVitals';
+import 'bootstrap/dist/css/bootstrap.css';
+import {
+  createBrowserRouter,
+  RouterProvider,
+} from "react-router-dom";
+import Artists from './pages/Artists';
+import Studios from './pages/Studios';
+import TattooStyles from './pages/TattooStyles';
+import PrivatePageArtist from './pages/PrivatePageArtist';
+
+const router = createBrowserRouter([
+  {
+    path: "/",
+    element: <App />,
+  },
+  {
+    path: "artistes",
+    element: <Artists />,
+  },
+  {
+    path: "studios",
+    element: <Studios />,
+  },
+  {
+    path: "types-de-tatouage",
+    element: <TattooStyles />,
+  },
+  {
+    path: "ma-page-artiste",
+    element: <PrivatePageArtist />,
+  },
+  
+]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <RouterProvider router={router} />
   </React.StrictMode>
 );
-
-// If you want to start measuring performance in your app, pass a function
-// to log results (for example: reportWebVitals(console.log))
-// or send to an analytics endpoint. Learn more: https://bit.ly/CRA-vitals
-reportWebVitals();
