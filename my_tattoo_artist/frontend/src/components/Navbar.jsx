@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'
 import '../styles/Navbar.css'
 
-function Navbar2() {
+function Navbar2(props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -25,7 +25,7 @@ function Navbar2() {
           {menuOpen ? <FaTimes /> : <FaBars />}
         </button>
         <div >
-          <ul className={menuOpen ? "navbar-menu2 active" : "navbar-menu2"}>
+          <ul className={menuOpen ? "navbar-menu active" : "navbar-menu"}>
             <li className="nav-item">
               <Link to='/' className="nav-links">Accueil</Link></li>
             <li className="nav-item">

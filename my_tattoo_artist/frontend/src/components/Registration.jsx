@@ -5,7 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Registration.css';
+import '../styles/Modal-Registration-login.css';
 
 function Registration(props) {
   /* variable pour gérer le clic sur le bouton et l'ouverture du modal */
@@ -65,14 +65,14 @@ function Registration(props) {
           <Modal.Body>
             <div className='form-container'>
               <div>
-                <FloatingLabel controlId="name" label="Nom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('name', { required: true })} />
+                <FloatingLabel controlId="last_name" label="Nom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('last_name', { required: true })} />
                 </FloatingLabel>
               </div>
               {errors.name && <p className="error-message">Le champ Nom est obligatoire.</p>}
               <div className='space-between-label'>
-                <FloatingLabel controlId="firstName" label="Prénom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('firstName', { required: true })} />
+                <FloatingLabel controlId="first_name" label="Prénom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('first_name', { required: true })} />
                 </FloatingLabel>
               </div>
               {errors.firstName && <p className="error-message">Le champ Prénom est obligatoire.</p>}

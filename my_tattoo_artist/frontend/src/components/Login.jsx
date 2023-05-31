@@ -5,7 +5,7 @@ import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
-import '../styles/Registration.css';
+import '../styles/Modal-Registration-login.css';
 
 function Login(props) {
   /* variable pour gérer le clic sur le bouton et l'ouverture du modal */
