@@ -65,17 +65,17 @@ function Registration(props) {
           <Modal.Body>
             <div className='form-container'>
               <div>
-                <FloatingLabel controlId="last name" label="Nom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('last name', { required: true })} />
+                <FloatingLabel controlId="last_name" label="Nom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('last_name', { required: true })} />
                 </FloatingLabel>
               </div>
-              {errors.name && <p className="error-message">Le champ Nom est obligatoire.</p>}
+              {errors.last_name && <p className="error-message">Le champ Nom est obligatoire.</p>}
               <div className='space-between-label'>
-                <FloatingLabel controlId="first name" label="Prénom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('first name', { required: true })} />
+                <FloatingLabel controlId="first_name" label="Prénom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('first_name', { required: true })} />
                 </FloatingLabel>
               </div>
-              {errors.firstName && <p className="error-message">Le champ Prénom est obligatoire.</p>}
+              {errors.first_name && <p className="error-message">Le champ Prénom est obligatoire.</p>}
               <div className='space-between-label'>
                 <FloatingLabel controlId="phone" label="Numéro de téléphone*" className="mb-3">
                   <Form.Control type="text" placeholder="" {...register('phone', { required: true })} />
