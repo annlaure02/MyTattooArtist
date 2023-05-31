@@ -21,8 +21,8 @@ function Login(props) {
   const redirectArtistPage = useNavigate();
 
   /* fonction qui fait la requête POST */
-  const onSubmit = (data) => {
-    fetch('http://127.0.0.1:8000/login_artist/', {
+  const onSubmit = async (data) => {
+    await fetch('http://127.0.0.1:8000/login_artist/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

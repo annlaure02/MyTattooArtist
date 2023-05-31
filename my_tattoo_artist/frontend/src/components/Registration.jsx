@@ -21,8 +21,8 @@ function Registration(props) {
   const redirectArtistPage = useNavigate();
 
   /* fonction qui fait la requête POST */
-  const onSubmit = (data) => {
-    fetch('http://127.0.0.1:8000/page_artist/', {
+  const onSubmit = async (data) => {
+    await fetch('http://127.0.0.1:8000/page_artist/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
@@ -65,14 +65,14 @@ function Registration(props) {
           <Modal.Body>
             <div className='form-container'>
               <div>
-                <FloatingLabel controlId="last_name" label="Nom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('last_name', { required: true })} />
+                <FloatingLabel controlId="last name" label="Nom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('last name', { required: true })} />
                 </FloatingLabel>
               </div>
               {errors.name && <p className="error-message">Le champ Nom est obligatoire.</p>}
               <div className='space-between-label'>
-                <FloatingLabel controlId="first_name" label="Prénom*" className="mb-3">
-                  <Form.Control type="text" placeholder="" {...register('first_name', { required: true })} />
+                <FloatingLabel controlId="first name" label="Prénom*" className="mb-3">
+                  <Form.Control type="text" placeholder="" {...register('first name', { required: true })} />
                 </FloatingLabel>
               </div>
               {errors.firstName && <p className="error-message">Le champ Prénom est obligatoire.</p>}
