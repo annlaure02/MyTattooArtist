@@ -9,7 +9,6 @@
 
 .navbar-logo {
   margin-top: 10px;
-  margin-left: 40px;
   cursor: pointer;
 }
 
@@ -42,7 +41,6 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  margin-right: 40px;
 }
 
 .text-artist {

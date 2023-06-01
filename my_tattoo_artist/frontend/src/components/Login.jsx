@@ -59,40 +59,44 @@ function Login(props) {
         keyboard={false}
         className="custom-modal"
       >
-        <Modal.Header closeButton>
-          <div className='modal-title'>
-            <Modal.Title>
-              <h2>Connexion</h2>
-            </Modal.Title>
-          </div>
-        </Modal.Header>
-        <form onSubmit={handleSubmit(onSubmit)}>
-          <Modal.Body>
-            <div className='form-container'>
-              <div>
-                <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
-                  <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true })} />
-                </FloatingLabel>
-              </div>
-              {errors.email && <p className="error-message">Le champ Adresse mail est obligatoire.</p>}
-              <div className='space-between-label'>
-                <FloatingLabel controlId="password" label="Mot de passe* (8 caractères minimum)" className="mb-3">
-                  <Form.Control type="password" placeholder="min 8 caractères" {...register('password', { required: true, minLength: 8 })} />
-                </FloatingLabel>
-              </div>
+        <div className='custom-modal-inside'>
+
+          <Modal.Header closeButton>
+            <div className='modal-title'>
+              <Modal.Title>
+                <h2>Connexion</h2>
+              </Modal.Title>
             </div>
-          </Modal.Body>
-          <div>
-            <Modal.Footer>
-              <div className='modal-button'>
-                <Button variant="primary" className='custom-button-connexion' type='submit'>
-                  Connexion</Button>
-                <Button variant="secondary" onClick={handleClose} className='custom-button-close'>
-                  Fermer</Button>
+          </Modal.Header>
+          <form onSubmit={handleSubmit(onSubmit)}>
+            <Modal.Body>
+              <div className='form-container'>
+                <div>
+                  <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
+                    <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true })} />
+                  </FloatingLabel>
+                </div>
+                {errors.email && <p className="error-message">Le champ Adresse mail est obligatoire.</p>}
+                <div className='space-between-label'>
+                  <FloatingLabel controlId="password" label="Mot de passe* (8 caractères minimum)" className="mb-3">
+                    <Form.Control type="password" placeholder="min 8 caractères" {...register('password', { required: true, minLength: 8 })} />
+                  </FloatingLabel>
+                </div>
               </div>
-            </Modal.Footer>
-          </div>
-        </form>
+            </Modal.Body>
+            <div>
+              <Modal.Footer>
+                <div className='modal-button'>
+                  <Button variant="primary" className='custom-button-connexion' type='submit'>
+                    Connexion</Button>
+                  <Button variant="secondary" onClick={handleClose} className='custom-button-close'>
+                    Fermer</Button>
+                </div>
+              </Modal.Footer>
+            </div>
+          </form>
+        </div>
+
       </Modal>
     </>
   );

@@ -6,7 +6,7 @@ import React, { useState } from 'react';
 import { FaBars, FaTimes } from 'react-icons/fa'
 import '../styles/Navbar.css'
 
-function Navbar2(props) {
+function Navbar(props) {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const handleMenuToggle = () => {
@@ -50,4 +50,4 @@ function Navbar2(props) {
   )
 }
 
-export default Navbar2
+export default Navbar
