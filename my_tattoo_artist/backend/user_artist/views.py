@@ -55,15 +55,12 @@ def user_artist_detail(request, pk):
 def login_user(request):
     if request.method == 'POST':
         data = request.data
-        exist_email = UserArtist.objects.filter(email=data['email']).exists()
-        exist_password = UserArtist.objects.filter(password=data['password']).exists()
-        if exist_email & exist_password:
-            response_data = {"message": "Les données existent dans la base de données."}
-            response_status = status.HTTP_200_OK
+        user = UserArtist.objects.filter(email=data['email'], password=data['password']).first()
+        if user is not None:
+            serializer = UserArtistSerializer(user)
+            return Response(serializer.data, status=status.HTTP_200_OK)
         else:
             response_data = {"message": "Les données n'existent pas dans la base de données."}
-            response_status = status.HTTP_404_NOT_FOUND
-
-        return Response(response_data, status=response_status)
+            return Response(response_data, status=status.HTTP_404_NOT_FOUND)
     
 
