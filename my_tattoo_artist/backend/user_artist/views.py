@@ -10,7 +10,7 @@ from .serializers import UserArtistSerializer
 @api_view(['GET', 'POST'])
 def user_artist_list(request):
     """
-    List all code snippets, or create a new snippet.
+    List all code snippets, or create a new artist.
     """
     if request.method == 'GET':
         artists = UserArtist.objects.filter(is_superuser=False)
@@ -23,6 +23,32 @@ def user_artist_list(request):
             serializer.save()
             return Response(serializer.data, status=status.HTTP_201_CREATED)
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
+
+@api_view(['GET', 'PUT', 'DELETE'])
+def user_artist_detail(request, pk):
+    """
+    Retrieve, update or delete a code artist.
+    """
+    try:
+        artist = UserArtist.objects.get(pk=pk)
+    except UserArtist.DoesNotExist:
+        return Response(status=status.HTTP_404_NOT_FOUND)
+
+    if request.method == 'GET':
+        serializer = UserArtistSerializer(artist)
+        return Response(serializer.data)
+
+    elif request.method == 'PUT':
+        serializer = UserArtistSerializer(artist, data=request.data)
+        if serializer.is_valid():
+            serializer.save()
+            return Response(serializer.data)
+        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+
+    elif request.method == 'DELETE':
+        artist.delete()
+        return Response(status=status.HTTP_204_NO_CONTENT)
     
 
 @api_view(['POST'])

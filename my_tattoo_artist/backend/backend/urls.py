@@ -21,5 +21,6 @@ from user_artist import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('page_artist/', views.user_artist_list),
+    path('page_artist/<int:pk>/', views.user_artist_detail),
     path('login_artist/', views.login_user),
 ]
