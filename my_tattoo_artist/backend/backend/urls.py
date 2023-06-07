@@ -22,5 +22,7 @@ urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/ma-page-artiste/', views.user_artist_list),
     path('api/ma-page-artiste/<str:pk>/', views.user_artist_detail),
-    path('api/login_artist/', views.login_user),
+    path('api/info-artiste/', views.info_artist_list),
+    path('api/info-artiste/<str:pk>/', views.info_artist_detail),
+    #path('api/login_artist/', views.login_user),
 ]
