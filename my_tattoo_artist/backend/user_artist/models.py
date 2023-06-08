@@ -36,7 +36,6 @@ class UserArtist(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     artist_name = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=10, blank=True)
-    username = None
     email = models.EmailField(unique=True)
     studio = models.ManyToManyField(Studio, blank=True)
     profile_picture = models.ImageField(upload_to='media/', blank=True, null=True)
@@ -44,6 +43,7 @@ class UserArtist(AbstractUser):
     style_tattoo = models.ManyToManyField(TattooStyle, blank=True)
     album = models.ImageField(upload_to='media/', blank=True, null=True)
     drawing = models.ImageField(upload_to='media/', blank=True, null=True)
+    username = None
 
 
     USERNAME_FIELD = 'email'
