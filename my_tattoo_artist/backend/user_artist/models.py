@@ -40,7 +40,7 @@ class UserArtist(AbstractUser):
     studio = models.ManyToManyField(Studio, blank=True)
     profile_picture = models.ImageField(upload_to='media/', blank=True, null=True)
     biography = models.TextField(max_length=1000, blank=True)
-    style_tattoo = models.ManyToManyField(TattooStyle, blank=True)
+    tattoo_style = models.ManyToManyField(TattooStyle, blank=True)
     album = models.ImageField(upload_to='media/', blank=True, null=True)
     drawing = models.ImageField(upload_to='media/', blank=True, null=True)
     username = None

@@ -5,7 +5,7 @@ import uuid
 
 class Studio(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name_studio = models.CharField(max_length=50)
+    studio_name = models.CharField(max_length=50)
     phone_studio = models.CharField(max_length=10)
     number_street = models.CharField(max_length=5)
     street = models.CharField(max_length=70)
@@ -14,13 +14,13 @@ class Studio(models.Model):
     country = models.CharField(max_length=15)
 
     def __str__(self):
-        return self.name_studio
+        return self.studio_name
 
 
 class TattooStyle(models.Model):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    name_style = models.CharField(max_length=50)
+    style_name = models.CharField(max_length=50)
     description = models.TextField(max_length=1000)
 
     def __str__(self):
-        return self.name_style
+        return self.style_name

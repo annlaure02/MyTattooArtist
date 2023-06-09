@@ -7,7 +7,7 @@ from .models import UserArtist
 from .serializers import UserArtistSerializer
 
 
-#retrive all artist  and create it in DB
+#retrieve all artist  and create it in DB
 @api_view(['GET', 'POST'])
 def user_artist_list(request):
     """
@@ -26,7 +26,7 @@ def user_artist_list(request):
         return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
     
     
-#retreve, create, update and delete for the artist personal page
+#retrieve, create, update and delete for the artist personal page
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def user_artist_detail(request, pk):
     """
