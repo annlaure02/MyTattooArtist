@@ -24,3 +24,4 @@ class TattooStyle(models.Model):
 
     def __str__(self):
         return self.style_name
+    

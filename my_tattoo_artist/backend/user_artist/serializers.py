@@ -13,3 +13,15 @@ class UserArtistSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True, 'required': False},
                         'email': {'required': False},
         }
+
+    def update(self, instance, validated_data):
+        studios = validated_data.pop('studio', None)
+        instance = super().update(instance, validated_data)
+        studio_obj = []
+        if studios is not None:
+            instance.studio.clear()
+            for studio_data in studios:
+                studio = Studio.objects.get(**studio_data)
+                studio_obj.append(studio)
+            instance.studio.set(studio_obj)
+        return instance
