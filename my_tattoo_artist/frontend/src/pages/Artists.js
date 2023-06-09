@@ -1,12 +1,18 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/header/Navbar';
+import DisplayArtists from '../components/DisplayArtists';
 
 
 function Artists() {
+
   return (
-    <div>
+    <div >
+      <div>
       <Navbar />
-      <div>Artistes</div>
+      </div>
+      <div className='container'>
+        <DisplayArtists />
+      </div>
     </div>
   )
 }

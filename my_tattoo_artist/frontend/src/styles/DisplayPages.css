@@ -1,0 +1,13 @@
+.custom-page {
+    display: flex;
+    flex-flow: row wrap;
+    justify-content: center;
+    row-gap: 1.5em;
+    column-gap: 1.5em;
+    opacity:0.7;
+
+}
+
+.custom-card {
+    cursor: pointer;
+}

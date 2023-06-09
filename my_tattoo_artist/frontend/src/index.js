@@ -2,15 +2,13 @@ import React from 'react';
 import ReactDOM from 'react-dom/client';
 import './index.css';
 import 'bootstrap/dist/css/bootstrap.css';
-import {
-  createBrowserRouter,
-  RouterProvider,
-} from "react-router-dom";
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Home from './pages/Home';
 import Artists from './pages/Artists';
 import Studios from './pages/Studios';
 import TattooStyles from './pages/TattooStyles';
-import PrivatePageArtist from './pages/PrivatePageArtist';
+import ProfileArtistPage from './pages/ProfileArtistPage';
+import { ArtistProvider } from './components/header/ArtistAuth';
 
 
 const router = createBrowserRouter([
@@ -31,15 +29,16 @@ const router = createBrowserRouter([
     element: <TattooStyles />,
   },
   {
-    path: "ma-page-artiste",
-    element: <PrivatePageArtist />,
+    path: "ma-page-artiste/:id",
+    element: <ProfileArtistPage />,
   },
-  
 ]);
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <RouterProvider router={router} />
+    <ArtistProvider>
+      <RouterProvider router={router} />
+    </ArtistProvider>
   </React.StrictMode>
 );

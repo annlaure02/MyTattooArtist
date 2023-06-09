@@ -1,0 +1,36 @@
+#modal {
+  top:10%;
+}
+
+.custom-modal-inside {
+  background-color: #c8c1c0;
+}
+
+.modal-title {
+  margin-top: 10px;
+  margin-left: 4em;
+}
+
+.form-container {
+  margin: 30px 40px 30px;
+}
+
+.space-between-label {
+  margin-top: 30px;
+}
+
+.custom-button-inscription {
+  margin-right: 10px;
+}
+.custom-button-connexion {
+  margin-right: 10px;
+}
+
+.custom-button-close {
+  margin-right: 8.5em;
+}
+
+.error-message {
+  font-size: 12px;
+  color: red;
+}

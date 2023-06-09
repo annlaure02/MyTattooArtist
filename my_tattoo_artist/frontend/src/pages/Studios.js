@@ -1,11 +1,11 @@
 import React from 'react'
-import Navbar from '../components/Navbar'
+import Navbar from '../components/header/Navbar';
 
 function Studios() {
   return (
     <div>
       <Navbar />
-      <div>Studios</div>
+      <div style={{color: "white"}}>Studios</div>
     </div>
   )
 }

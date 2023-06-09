@@ -1,9 +1,9 @@
-import Navbar from '../components/Navbar';
+import Navbar from '../components/header/Navbar';
 
-function App() {
+function Home() {
 
   return (
-    <div className="App">
+    <div>
       <div>
         <Navbar />
       </div>
@@ -11,4 +11,5 @@ function App() {
   );
 }
 
-export default App;
+export default Home;
+
