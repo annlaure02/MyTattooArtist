@@ -2,7 +2,7 @@ from django.db import models
 from django.contrib.auth.models import AbstractUser
 from django.contrib.auth.base_user import BaseUserManager
 import uuid
-from project.models import Studio, TattooStyle
+from project.models import TattooStyle
 
 # Create your models here.
 class UserArtistManager(BaseUserManager):
@@ -37,12 +37,18 @@ class UserArtist(AbstractUser):
     artist_name = models.CharField(max_length=50, blank=True)
     phone = models.CharField(max_length=10, blank=True)
     email = models.EmailField(unique=True)
-    studio = models.ManyToManyField(Studio, blank=True)
     profile_picture = models.ImageField(upload_to='media/', blank=True, null=True)
     biography = models.TextField(max_length=1000, blank=True)
     tattoo_style = models.ManyToManyField(TattooStyle, blank=True)
     album = models.ImageField(upload_to='media/', blank=True, null=True)
     drawing = models.ImageField(upload_to='media/', blank=True, null=True)
+    studio_name = models.CharField(max_length=50, blank=True)
+    studio_number_street = models.CharField(max_length=5, blank=True)
+    studio_street = models.CharField(max_length=70, blank=True)
+    studio_city = models.CharField(max_length=50, blank=True)
+    studio_post_code = models.CharField(max_length=5, blank=True)
+    studio_country = models.CharField(max_length=30, blank=True)
+    studio_state = models.CharField(max_length=50, blank=True)
     username = None
 
 

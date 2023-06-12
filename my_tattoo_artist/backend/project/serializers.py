@@ -1,11 +1,5 @@
 from rest_framework import serializers
-from .models import Studio, TattooStyle
-
-class StudioSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Studio
-        fields = '__all__'
-
+from .models import TattooStyle
 
 class TattooStyleSerializer(serializers.ModelSerializer):
     class Meta:
