@@ -10,9 +10,6 @@ from .serializers import UserArtistSerializer
 #retrieve all artist  and create it in DB
 @api_view(['GET', 'POST'])
 def user_artist_list(request):
-    """
-    List all code artists, or create a new artist.
-    """
     if request.method == 'GET':
         artists = UserArtist.objects.filter(is_superuser=False)
         serializer = UserArtistSerializer(artists, many=True)
@@ -29,9 +26,6 @@ def user_artist_list(request):
 #retrieve, create, update and delete for the artist personal page
 @api_view(['GET', 'POST', 'PUT', 'DELETE'])
 def user_artist_detail(request, pk):
-    """
-    Retrieve, update or delete a code artist.
-    """
     try:
         artist = UserArtist.objects.get(pk=pk)
     except UserArtist.DoesNotExist:
