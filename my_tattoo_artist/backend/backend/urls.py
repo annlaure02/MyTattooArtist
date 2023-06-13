@@ -16,15 +16,17 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from user_artist import views
 from django.conf import settings
 from django.conf.urls.static import static
+from project import view
+from user_artist import views
 
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('api/ma-page-artiste/', views.user_artist_list),
     path('api/ma-page-artiste/<str:pk>/', views.user_artist_detail),
     path('api/login_artist/', views.login_user),
+    path('api/tattoo-style/', view.tattoo_style_list),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
