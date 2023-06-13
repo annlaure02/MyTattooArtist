@@ -53,8 +53,7 @@ function Registration(props) {
         onHide={handleClose}
         backdrop="static"
         keyboard={false}
-        className="custom-modal"
-        id='modal'
+        id='connect-modal'
 
       >
         <div className='custom-modal-inside'>
@@ -88,7 +87,7 @@ function Registration(props) {
                 {errors.phone && <p className="error-message">Le champ Numéro de téléphone est obligatoire.</p>}
                 <div className='space-between-label'>
                   <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
-                    <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true })} />
+                    <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true, maxLength: 10 })} />
                   </FloatingLabel>
                 </div>
                 {errors.email && <p className="error-message">Le champ Adresse mail est obligatoire.</p>}

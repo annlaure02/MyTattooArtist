@@ -1,9 +1,10 @@
-#modal {
+#connect-modal {
   top:10%;
 }
 
 .custom-modal-inside {
-  background-color: #c8c1c0;
+  background-color: #adadad;
+  border-radius: 7px;
 }
 
 .modal-title {

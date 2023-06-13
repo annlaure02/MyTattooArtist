@@ -1,0 +1,22 @@
+.container {
+    color: white;
+}
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 100px;
+    color: white;
+}
+
+.custom-private-artist-page {
+    color: white;
+}
+
+.custom-title {
+    display: flex;
+    align-items: center;
+    color: #0075ab;
+    gap: 25px;
+}

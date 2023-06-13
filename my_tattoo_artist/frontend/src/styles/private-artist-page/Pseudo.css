@@ -1,7 +1,14 @@
-#modal1 {
-    top:10%;
+#artist-modal {
+    top: 20%;
 }
 
-.custom-modal-inside {
-    border-radius: 10px;
+.add-button {
+    color: white;
+    font-size: 20px;
+    background-color:rgba(0, 0, 0, 0.5);
+}
+
+.plus-icon {
+    align-items: center;
+    color: red;
 }

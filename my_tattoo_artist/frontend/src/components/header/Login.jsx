@@ -35,7 +35,7 @@ function Login() {
         backdrop="static"
         keyboard={false}
         className="custom-modal"
-        id='modal'
+        id='connect-modal'
       >
         <div className='custom-modal-inside'>
           <Modal.Header closeButton>

@@ -1,13 +1,83 @@
-import React from 'react'
-import { GrAdd, GrEdit } from "react-icons/gr";
+import React, { useContext, useState } from 'react'
+import { PencilFill, PlusLg } from 'react-bootstrap-icons';
+import Modal from 'react-bootstrap/Modal';
+import Button from 'react-bootstrap/Button';
+import Form from 'react-bootstrap/Form';
+import { useForm } from 'react-hook-form';
+import { ArtistContext } from '../header/ArtistAuth';
+import '../../styles/private-artist-page/Pseudo.css'
 
-function ProfilePicture() {
+function ProfilePicture({ dataUpdated }) {
+  const [show, setShow] = useState(false);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
+
+  const { register, handleSubmit } = useForm();
+
+  const { artistId } = useContext(ArtistContext)
+
+  const onSubmit = async (data) => {
+    const formData = new FormData();
+    formData.append('profile_picture', data.profile_picture[0]);
+
+
+    const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
+    try {
+      if (artistId) {
+        const updateResponse = await fetch(url, {
+          method: 'POST',
+          body: formData
+        });
+
+        if (updateResponse.ok) {
+          const responseData = await updateResponse.json();
+          dataUpdated(responseData);
+          console.log(dataUpdated);
+        } else {
+          console.log('An error is produced during the request POST');
+        }
+      }
+    }
+    catch (error) {
+      console.error('An error is produced during the request:', error);
+    }
+    handleClose();
+  };
+
   return (
-    <div>
-      <h1>Ma photo de profile</h1>
-      <button><GrAdd /></button>
-      <button><GrEdit /></button>
-    </div>
+    <>
+      <div>
+        <button className='add-button' onClick={handleShow}>
+          <PlusLg className='plus-icon' /> Ajouter
+        </button>
+        <Modal
+          show={show}
+          onHide={handleClose}
+          id='artist-modal'
+        >
+          <div className='custom-modal-inside'>
+            <form onSubmit={handleSubmit(onSubmit)}>
+              <Modal.Body>
+                <div className='form-container'>
+                  <Form.Group controlId="profile_picture" className="mb-3">
+                    <Form.Label>Photo de profil</Form.Label>
+                    <Form.Control 
+                      type="file" 
+                      accept="image/jpeg,image/png,image/gif" 
+                      {...register('profile_picture', { required: true })} />
+                  </Form.Group>
+                  <Button variant="primary" className='custom-button-inscription' type='submit'>
+                    Valider</Button>
+                </div>
+              </Modal.Body>
+            </form>
+          </div>
+        </Modal>
+      </div>
+      <div>
+        <button><PencilFill style={{ color: 'red' }} /> Modifier</button>
+      </div>
+    </>
   )
 }
 
