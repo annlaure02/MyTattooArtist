@@ -7,11 +7,11 @@ import ProfilePicture from '../components/profile-artist-page/ProfilePicture'
 import Pseudo from '../components/profile-artist-page/Pseudo';
 import Biography from '../components/profile-artist-page/Biography';
 import Studio from '../components/profile-artist-page/Studio';
+import TattooStyles from '../components/profile-artist-page/TattooStyles';
 
 function ProfileArtistPage() {
   const { artistId } = useContext(ArtistContext)
   const [artist, setArtist] = useState({})
-
 
   // Request GET infos of the artist 
   const fetchData = useCallback(async () => {
@@ -19,8 +19,7 @@ function ProfileArtistPage() {
     const data = await response.json()
     setArtist(data)
   }, [artistId]);
-
-
+ 
   useEffect(() => {
     fetchData()
   }, [fetchData])
@@ -33,6 +32,7 @@ function ProfileArtistPage() {
 
   // Function to update the json after PUT request and display the new info in the db
   const handleUpdate = (dataUpdated) => {
+    console.log(dataUpdated)
     setArtist(dataUpdated)
   }
 
@@ -56,7 +56,7 @@ function ProfileArtistPage() {
               <ProfilePicture dataUpdated={handleUpdate} />
             </div>
             <div className='info-artist'>
-              <h1>{artist.profile_picture}</h1>
+              <img src={`http://127.0.0.1:8000${artist.profile_picture}`} alt="profil" height={200} />
             </div>
           </div>
           <div>
@@ -94,11 +94,17 @@ function ProfileArtistPage() {
           <div>
             <div className='custom-title'>
               <h1>Styles de Tatouage</h1>
-
+              <TattooStyles dataUpdated={handleUpdate} />
             </div>
-            <div className='info-artist'>
-              <p></p>
+            {artist.tattoo_style ? (
+              <div className='info-artist'>
+              {artist.tattoo_style.map(style => (
+                <div key={style.id}>
+                  <p>{style.style_name}</p>
+                </div>
+              ))}
             </div>
+            ) : ( <p>Fail to display tattoo styles</p> )}
           </div>
           <div>
             <div className='custom-title'>

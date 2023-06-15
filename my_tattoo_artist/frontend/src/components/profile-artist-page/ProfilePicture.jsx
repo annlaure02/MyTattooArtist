@@ -14,25 +14,23 @@ function ProfilePicture({ dataUpdated }) {
 
   const { register, handleSubmit } = useForm();
 
-  const { artistId } = useContext(ArtistContext)
+  const { artistId } = useContext(ArtistContext);
 
   const onSubmit = async (data) => {
     const formData = new FormData();
     formData.append('profile_picture', data.profile_picture[0]);
 
-
     const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {
-          method: 'POST',
+          method: 'PUT',
           body: formData
         });
 
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();
           dataUpdated(responseData);
-          console.log(dataUpdated);
         } else {
           console.log('An error is produced during the request POST');
         }
@@ -62,8 +60,7 @@ function ProfilePicture({ dataUpdated }) {
                   <Form.Group controlId="profile_picture" className="mb-3">
                     <Form.Label>Photo de profil</Form.Label>
                     <Form.Control 
-                      type="file" 
-                      accept="image/jpeg,image/png,image/gif" 
+                      type="file"
                       {...register('profile_picture', { required: true })} />
                   </Form.Group>
                   <Button variant="primary" className='custom-button-inscription' type='submit'>
@@ -77,7 +74,7 @@ function ProfilePicture({ dataUpdated }) {
       <div>
         <button><PencilFill style={{ color: 'red' }} /> Modifier</button>
       </div>
-    </>
+      </>
   )
 }
 
