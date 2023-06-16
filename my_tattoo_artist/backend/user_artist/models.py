@@ -32,6 +32,7 @@ class UserArtistManager(BaseUserManager):
             raise ValueError('Superuser must have is_superuser=True.')
         return self.create_user(email, password, **extra_fields)
 
+#create table user artist in DB
 class UserArtist(AbstractUser):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     artist_name = models.CharField(max_length=50, blank=True)
@@ -40,8 +41,6 @@ class UserArtist(AbstractUser):
     profile_picture = models.ImageField(upload_to='profile_picture/', blank=True, null=True)
     biography = models.TextField(max_length=1000, blank=True)
     tattoo_style = models.ManyToManyField(TattooStyle, blank=True)
-    album = models.ImageField(upload_to='album/', blank=True, null=True)
-    drawing = models.ImageField(upload_to='drawing/', blank=True, null=True)
     studio_name = models.CharField(max_length=50, blank=True)
     studio_number_street = models.CharField(max_length=5, blank=True)
     studio_street = models.CharField(max_length=70, blank=True)
@@ -59,3 +58,21 @@ class UserArtist(AbstractUser):
 
     def __str__(self):
         return self.email
+    
+#create table user artist album in DB
+class UserArtistAlbum(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user_artist = models.ForeignKey(UserArtist, on_delete=models.CASCADE,)
+    image = models.ImageField(upload_to='album/', blank=True, null=True)
+
+    def __str__(self):
+        return self.user_artist.artist_name
+
+#create table user artist drawing in DB    
+class UserArtistDrawing(models.Model):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    user_artist = models.ForeignKey(UserArtist, on_delete=models.CASCADE,)
+    image = models.ImageField(upload_to='drawing/', blank=True, null=True)
+
+    def __str__(self):
+        return self.user_artist.artist_name
