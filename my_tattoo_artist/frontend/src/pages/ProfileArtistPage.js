@@ -8,6 +8,8 @@ import Pseudo from '../components/profile-artist-page/Pseudo';
 import Biography from '../components/profile-artist-page/Biography';
 import Studio from '../components/profile-artist-page/Studio';
 import TattooStyles from '../components/profile-artist-page/TattooStyles';
+import Album from '../components/profile-artist-page/Album';
+import Drawing from '../components/profile-artist-page/Drawing';
 
 function ProfileArtistPage() {
   const { artistId } = useContext(ArtistContext)
@@ -56,7 +58,7 @@ function ProfileArtistPage() {
               <ProfilePicture dataUpdated={handleUpdate} />
             </div>
             <div className='info-artist'>
-              <img src={`http://127.0.0.1:8000${artist.profile_picture}`} alt="profil" height={200} />
+              <img src={`http://127.0.0.1:8000${artist.profile_picture}`} alt="" height={200} />
             </div>
           </div>
           <div>
@@ -109,19 +111,23 @@ function ProfileArtistPage() {
           <div>
             <div className='custom-title'>
               <h1>Photos</h1>
-
+              <Album dataUpdated={handleUpdate}/>
             </div>
             <div className='info-artist'>
-              <p></p>
+              {artist.album && artist.album.map(picture => (
+                <img key={picture.id} src={`http://127.0.0.1:8000${picture.image}`} alt="" height={100} />
+              ))}
             </div>
           </div>
           <div>
             <div className='custom-title'>
               <h1>Dessins / Flash</h1>
-
+              <Drawing dataUpdated={handleUpdate}/>
             </div>
             <div className='info-artist'>
-              <p></p>
+              {artist.drawing && artist.drawing.map(drawing => (
+                <img key={drawing.id} src={`http://127.0.0.1:8000${drawing.image}`} alt="" height={100} />
+              ))}
             </div>
           </div>
         </div>
