@@ -5,6 +5,8 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import UserArtist
 from .serializers import UserArtistSerializer
+from rest_framework import generics
+from rest_framework import filters
 
 
 #retrieve all artist  and create it in DB
@@ -24,7 +26,7 @@ def user_artist_list(request):
     
     
 #retrieve, create, update and delete for the artist personal page
-@api_view(['GET', 'POST', 'PUT', 'DELETE'])
+@api_view(['GET', 'PUT', 'DELETE'])
 def user_artist_detail(request, pk):
     try:
         artist = UserArtist.objects.get(pk=pk)
@@ -48,12 +50,7 @@ def user_artist_detail(request, pk):
         artist.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-    elif request.method == 'POST':
-        serializer = UserArtistSerializer(artist, data=request.data)
-        if serializer.is_valid():
-            serializer.save()
-            return Response(serializer.data, status=status.HTTP_201_CREATED)
-        return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
+    
     
 
 #method how check if artist is in the DB   
@@ -68,4 +65,10 @@ def login_user(request):
         else:
             response_data = {"message": "Les données n'existent pas dans la base de données."}
             return Response(response_data, status=status.HTTP_404_NOT_FOUND)
+        
+class UserArtistAPIView(generics.ListCreateAPIView):
+    queryset = UserArtist.objects.all()
+    serializer_class = UserArtistSerializer
+    filter_backends = [filters.SearchFilter]
+    search_fields = ['artist_name', 'studio_city', 'studio_state', 'tattoo_style__style_name']
         

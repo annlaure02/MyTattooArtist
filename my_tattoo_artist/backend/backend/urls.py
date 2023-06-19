@@ -27,6 +27,7 @@ urlpatterns = [
     path('api/ma-page-artiste/<str:pk>/', views.user_artist_detail),
     path('api/login_artist/', views.login_user),
     path('api/tattoo-style/', view.tattoo_style_list),
+    path('api/search/', views.UserArtistAPIView.as_view()),
 
 ] + static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
 
