@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect, useCallback } from 'react'
+import React, { useContext, useState, useEffect } from 'react'
 import { PencilFill, PlusLg } from 'react-bootstrap-icons';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
@@ -18,15 +18,16 @@ function TattooStyles({ dataUpdated }) {
 
   const { artistId } = useContext(ArtistContext)
 
-  const fetchData = useCallback(async () => {
-    const response = await fetch(`http://127.0.0.1:8000/api/tattoo-style/`)
-    const data = await response.json()
-    setStyles(data)
-  }, [])
+
 
   useEffect(() => {
+    const fetchData = async () => {
+      const response = await fetch(`http://127.0.0.1:8000/api/tattoo-style/`)
+      const data = await response.json()
+      setStyles(data)
+    };
     fetchData()
-  }, [fetchData])
+  }, [])
 
   const onSubmit = async (data) => {
     const selectedStyles = data.tattoo_style;
@@ -40,7 +41,7 @@ function TattooStyles({ dataUpdated }) {
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {
-          method: 'POST',
+          method: 'PUT',
           headers: {
             'Content-Type': 'application/json'
           },
@@ -78,8 +79,8 @@ function TattooStyles({ dataUpdated }) {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
                 <div className='form-container'>
-                <Form.Group>
-                  <h3>Sélectionne tes styles</h3>
+                  <Form.Group>
+                    <h3>Sélectionne tes styles</h3>
                     {styles.map(style => (
                       <Form.Check
                         key={style.id}

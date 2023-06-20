@@ -24,9 +24,10 @@ function DisplayArtists() {
         {artists.map(artist => (
           <div key={artist.id}>
             <Card className='custom-card' style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Title>{artist.last_name} {artist.first_name}</Card.Title>
-                <Card.Text>
+              <Card.Body >
+                <Card.Title style={{ color: "black" }}>
+                  {artist.last_name} {artist.first_name}</Card.Title>
+                <Card.Text style={{ color: "black" }}>
                   {artist.artist_name}
                 </Card.Text>
                 <Card.Link href="#">Card Link</Card.Link>

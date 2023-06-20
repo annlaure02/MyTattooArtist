@@ -44,7 +44,7 @@ function Drawing({ dataUpdated }) {
           const responseData = await updateResponse.json();
           dataUpdated(responseData);
         } else {
-          console.log('An error is produced during the request POST');
+          console.log('An error is produced during the request PUT');
         }
       }
     }
