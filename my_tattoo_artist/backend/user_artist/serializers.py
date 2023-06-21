@@ -1,8 +1,32 @@
 from rest_framework import serializers
+from django.contrib.auth import authenticate
+from django.core.exceptions import ValidationError
 from .models import UserArtist, UserArtistAlbum, UserArtistDrawing
 from project.serializers import TattooStyleSerializer
 from project.models import TattooStyle
 
+
+
+class UserRegisterSerializer(serializers.ModelSerializer):
+	class Meta:
+		model = UserArtist
+		fields = ['email', 'password', 'first_name', 'last_name', 'phone']
+	def create(self, clean_data):
+		user_obj = UserArtist.objects.create_user(email=clean_data['email'], password=clean_data['password'],
+                                                first_name=clean_data['first_name'], last_name=clean_data['last_name'],
+                                                phone=clean_data['phone'])
+		user_obj.save()
+		return user_obj
+
+class UserLoginSerializer(serializers.Serializer):
+	email = serializers.EmailField()
+	password = serializers.CharField()
+
+	def check_user(self, clean_data):
+		user = authenticate(email=clean_data['email'], password=clean_data['password'])
+		if not user:
+			raise ValidationError('user not found')
+		return user
 
 class UserArtistAlbumSerializer(serializers.ModelSerializer):
     class Meta:
@@ -27,20 +51,7 @@ class UserArtistSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = UserArtist
-        fields = ['first_name', 'last_name', 'id', 
-                  'artist_name', 'phone', 'email', 
-                  'profile_picture', 'biography', 
-                  'studio_name', 'studio_number_street',
-                  'studio_street', 'studio_city',
-                  'studio_post_code', 'studio_country',
-                  'studio_state','tattoo_style', 'album', 'drawing', 
-                  'uploaded_images_album', 'uploaded_images_drawing'
-                  ]
-        
-        extra_kwargs = {
-            'password': {'required': False, 'read_only': True},
-            'email': {'required': False}
-                        }
+        fields = '__all__'
         
 
     def create(self, validated_data):

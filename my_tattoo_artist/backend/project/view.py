@@ -1,14 +1,13 @@
-from django.shortcuts import render
-from rest_framework import serializers
 from rest_framework import status
-from rest_framework.decorators import api_view
+from rest_framework.decorators import api_view, permission_classes
 from rest_framework.response import Response
+from rest_framework.permissions import AllowAny
 from .models import TattooStyle
 from .serializers import TattooStyleSerializer
 
 # Create your views here.
-
 @api_view(['GET', 'POST'])
+@permission_classes((AllowAny,))
 def tattoo_style_list(request):
     if request.method == 'GET':
         tattoo = TattooStyle.objects.all()
