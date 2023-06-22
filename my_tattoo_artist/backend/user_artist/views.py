@@ -12,6 +12,7 @@ from rest_framework import status
 from django.middleware.csrf import get_token
 from django.contrib.auth import login, logout
 from rest_framework.decorators import api_view
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import UserArtist
 from .serializers import UserArtistSerializer, UserRegisterSerializer, UserLoginSerializer
 
@@ -102,11 +103,19 @@ def user_artist_detail(request, pk):
         artist.delete()
         return Response(status=status.HTTP_204_NO_CONTENT)
     
-        
+
+class TattooStyleFilter(filters.BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        style_param = request.query_params.get('style_name')
+        if style_param:
+            queryset = queryset.filter(tattoo_style__style_name=style_param)
+        return queryset
+
+
 class UserArtistAPIView(generics.ListCreateAPIView):
     queryset = UserArtist.objects.all()
     serializer_class = UserArtistSerializer
-    filter_backends = [filters.SearchFilter]
-    search_fields = ['artist_name', 'studio_city', 'studio_state', 'tattoo_style__style_name']
+    filter_backends = [TattooStyleFilter, filters.SearchFilter]
+    search_fields = ['artist_name', 'studio_city', 'studio_state']
     permission_classes = (AllowAny,)
         
