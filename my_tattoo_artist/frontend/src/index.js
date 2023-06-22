@@ -9,6 +9,7 @@ import Studios from './pages/Studios';
 import TattooStyles from './pages/TattooStyles';
 import ProfileArtistPage from './pages/ProfileArtistPage';
 import { ArtistProvider } from './components/header/ArtistAuth';
+import Login from './components/header/Login';
 
 
 const router = createBrowserRouter([
@@ -29,8 +30,12 @@ const router = createBrowserRouter([
     element: <TattooStyles />,
   },
   {
-    path: "ma-page-artiste/:id",
+    path: "ma-page-artiste/:artistId",
     element: <ProfileArtistPage />,
+  },
+  {
+    path: "connexion",
+    element: <Login />,
   },
 ]);
 

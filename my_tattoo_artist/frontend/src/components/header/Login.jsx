@@ -1,12 +1,9 @@
-import React, { useState } from 'react';
-import Button from 'react-bootstrap/Button';
-import Modal from 'react-bootstrap/Modal';
-import FloatingLabel from 'react-bootstrap/FloatingLabel';
-import Form from 'react-bootstrap/Form';
+import React, { useState, useContext } from 'react';
+import { Button, Modal, FloatingLabel, Form } from 'react-bootstrap';
 import { useForm } from 'react-hook-form';
 import { useNavigate } from 'react-router-dom';
 import '../../styles/header/Registration-Login.css';
-import { LoginArtist } from './LoginArtist';
+import { ArtistContext } from './ArtistAuth';
 
 function Login() {
   const [show, setShow] = useState(false);
@@ -14,13 +11,35 @@ function Login() {
   const handleShow = () => setShow(true);
 
   const { register, handleSubmit, formState: { errors } } = useForm();
-
   const redirectArtistPage = useNavigate();
+  const { login } = useContext(ArtistContext);  
 
-  const { loginProfile } = LoginArtist();
+  const onSubmit = async (data) => {
+    try {
+      const response = await fetch('http://127.0.0.1:8000/api/login/', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(data)
+      });
 
-  const onSubmit = (data) => {
-    loginProfile(data, redirectArtistPage);
+      const responseData = await response.json();
+      const artistId = responseData.artistId;
+      console.log(responseData);
+
+      login(artistId);
+
+      const artistResponse = await fetch(`http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`);
+      const artistData = await artistResponse.json();
+      console.log(artistData);
+
+      const redirectUrl = `/ma-page-artiste/${artistId}`;
+      redirectArtistPage(redirectUrl);
+
+    } catch (error) {
+      console.error('Une erreur s\'est produite lors de la requête :', error);
+    }
   };
 
   return (
@@ -79,4 +98,4 @@ function Login() {
   );
 }
 
-export default Login
+export default Login;

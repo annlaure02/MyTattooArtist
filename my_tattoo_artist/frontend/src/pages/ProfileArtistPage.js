@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useContext, useCallback } from 'react';
-import { ArtistContext } from '../components/header/ArtistAuth';
+import React, { useState, useEffect, useCallback } from 'react';
+import { useParams, useNavigate } from 'react-router-dom';
 import Button from 'react-bootstrap/Button';
-import { useNavigate } from 'react-router-dom';
-import '../styles/private-artist-page/Private-Page-Header.css'
-import ProfilePicture from '../components/profile-artist-page/ProfilePicture'
+import '../styles/private-artist-page/Private-Page-Header.css';
+import ProfilePicture from '../components/profile-artist-page/ProfilePicture';
 import Pseudo from '../components/profile-artist-page/Pseudo';
 import Biography from '../components/profile-artist-page/Biography';
 import Studio from '../components/profile-artist-page/Studio';
@@ -12,35 +11,43 @@ import Album from '../components/profile-artist-page/Album';
 import Drawing from '../components/profile-artist-page/Drawing';
 
 function ProfileArtistPage() {
-  const { artistId } = useContext(ArtistContext)
-  const [artist, setArtist] = useState({})
+  const { artistId } = useParams();
+  const [artist, setArtist] = useState({});
 
   // Request GET infos of the artist 
   const fetchData = useCallback(async () => {
-    const response = await fetch(`http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`)
-    const data = await response.json()
-    setArtist(data)
+    try {
+      const response = await fetch(`http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`);
+      if (response.ok) {
+        const data = await response.json();
+        setArtist(data);
+      } else {
+        console.error('Une erreur s\'est produite lors de la récupération des informations de l\'artiste.');
+      }
+    } catch (error) {
+      console.error('Une erreur s\'est produite lors de la requête :', error);
+    }
   }, [artistId]);
- 
+
   useEffect(() => {
-    fetchData()
-  }, [fetchData])
+    fetchData();
+  }, [fetchData]);
 
   // For disconnection button 
-  const redirectHomePage = useNavigate()
+  const redirectHomePage = useNavigate();
   const Logout = () => {
-    redirectHomePage(`/`)
-  }
+    redirectHomePage(`/`);
+  };
 
   // Function to update the json after PUT request and display the new info in the db
   const handleUpdate = (dataUpdated) => {
-    console.log(dataUpdated)
-    setArtist(dataUpdated)
-  }
+    console.log(dataUpdated);
+    setArtist(dataUpdated);
+  };
 
   return (
     <>
-      <div className="container" >
+      <div className="container">
         <div className='custom-header'>
           <div>
             <h1>Bonjour {artist.first_name}</h1>
@@ -100,18 +107,18 @@ function ProfileArtistPage() {
             </div>
             {artist.tattoo_style ? (
               <div className='info-artist'>
-              {artist.tattoo_style.map(style => (
-                <div key={style.id}>
-                  <p>{style.style_name}</p>
-                </div>
-              ))}
-            </div>
-            ) : ( <p>Fail to display tattoo styles</p> )}
+                {artist.tattoo_style.map(style => (
+                  <div key={style.id}>
+                    <p>{style.style_name}</p>
+                  </div>
+                ))}
+              </div>
+            ) : (<p>Fail to display tattoo styles</p>)}
           </div>
           <div>
             <div className='custom-title'>
               <h1>Photos</h1>
-              <Album dataUpdated={handleUpdate}/>
+              <Album dataUpdated={handleUpdate} />
             </div>
             <div className='info-artist'>
               {artist.album && artist.album.map(picture => (
@@ -122,7 +129,7 @@ function ProfileArtistPage() {
           <div>
             <div className='custom-title'>
               <h1>Dessins / Flash</h1>
-              <Drawing dataUpdated={handleUpdate}/>
+              <Drawing dataUpdated={handleUpdate} />
             </div>
             <div className='info-artist'>
               {artist.drawing && artist.drawing.map(drawing => (
@@ -133,7 +140,6 @@ function ProfileArtistPage() {
         </div>
       </div>
     </>
-  )
+  );
 }
-
-export default ProfileArtistPage
+export default ProfileArtistPage;
