@@ -9,7 +9,7 @@ import Studios from './pages/Studios';
 import TattooStyles from './pages/TattooStyles';
 import ProfileArtistPage from './pages/ProfileArtistPage';
 import { ArtistProvider } from './components/header/ArtistAuth';
-import Login from './components/header/Login';
+import Connexion from './components/header/Connexion';
 
 
 const router = createBrowserRouter([
@@ -35,7 +35,7 @@ const router = createBrowserRouter([
   },
   {
     path: "connexion",
-    element: <Login />,
+    element: <Connexion />,
   },
 ]);
 

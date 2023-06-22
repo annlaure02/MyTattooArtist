@@ -8,17 +8,14 @@ import { useNavigate } from 'react-router-dom';
 import '../../styles/header/Registration-Login.css';
 
 function Registration(props) {
-  /* variable pour gérer le clic sur le bouton et l'ouverture du modal */
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
   const { register, handleSubmit, formState: { errors } } = useForm();
 
-  /* rediriger l'utilisateur lorqu'il clique sur valider */
   const redirectArtistPage = useNavigate();
 
-  /* fonction qui fait la requête POST */
   const onSubmit = async (data) => {
     await fetch('http://127.0.0.1:8000/api/register/', {
       method: 'POST',
@@ -32,7 +29,7 @@ function Registration(props) {
         console.log(responseData);
         const artistId = responseData.artistId;
         if (artistId) {
-          const redirectUrl = `/ma-page-artiste/${artistId}`;
+          const redirectUrl = `/connexion`;
           redirectArtistPage(redirectUrl);
         } else {
           console.error('L\'ID de l\'artiste n\'a pas été retourné dans la réponse JSON.');
@@ -48,7 +45,6 @@ function Registration(props) {
       <Button variant="primary" onClick={handleShow}>
         Inscription
       </Button>
-
       <Modal
         show={show}
         onHide={handleClose}
