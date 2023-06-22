@@ -30,7 +30,9 @@ class UserRegister(APIView):
         if serializer.is_valid(raise_exception=True):
             user = serializer.create(serializer.validated_data)
             if user:
-                return Response(serializer.data, status=status.HTTP_201_CREATED)
+                data = serializer.data
+                data['artistId'] = user.id  
+                return Response(data, status=status.HTTP_201_CREATED)
         return Response(status=status.HTTP_400_BAD_REQUEST)
     
 
