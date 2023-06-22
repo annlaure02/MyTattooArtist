@@ -13,8 +13,6 @@ function Registration(props) {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  /* register: permet d'enregistrer les valeurs que vont prendre les champsdu formulaire */
-  /* handleSubmit: permet de transferer les données */
   const { register, handleSubmit, formState: { errors } } = useForm();
 
   /* rediriger l'utilisateur lorqu'il clique sur valider */
@@ -22,20 +20,23 @@ function Registration(props) {
 
   /* fonction qui fait la requête POST */
   const onSubmit = async (data) => {
-    await fetch('http://127.0.0.1:8000/api/ma-page-artiste/', {
+    await fetch('http://127.0.0.1:8000/api/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'
       },
       body: JSON.stringify(data)
     })
-      .then(Response => Response.json())
-      .then(responseRequest => {
-        // Traiter la réponse de la requête
-        console.log(responseRequest);
-        const userId = responseRequest.id;
-        const redirectUrl = `/ma-page-artiste/${userId}`;
-        redirectArtistPage(redirectUrl);
+      .then(response => response.json())
+      .then(responseData => {
+        console.log(responseData);
+        const artistId = responseData.artistId;
+        if (artistId) {
+          const redirectUrl = `/ma-page-artiste/${artistId}`;
+          redirectArtistPage(redirectUrl);
+        } else {
+          console.error('L\'ID de l\'artiste n\'a pas été retourné dans la réponse JSON.');
+        }
       })
       .catch(error => {
         console.error('Une erreur s\'est produite lors de la requête :', error);
@@ -54,7 +55,6 @@ function Registration(props) {
         backdrop="static"
         keyboard={false}
         id='connect-modal'
-
       >
         <div className='custom-modal-inside'>
           <Modal.Header closeButton>
@@ -116,4 +116,4 @@ function Registration(props) {
   );
 }
 
-export default Registration
+export default Registration;
