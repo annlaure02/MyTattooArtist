@@ -8,6 +8,7 @@
   align-items: center;
   font-size: 1.4rem;
   box-sizing: border-box;
+  height: 250px;
 }
 
 .navbar-logo {

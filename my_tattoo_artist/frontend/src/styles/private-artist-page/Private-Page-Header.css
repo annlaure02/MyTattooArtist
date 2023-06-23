@@ -1,5 +1,7 @@
 .container {
     color: white;
+    background-color: black;
+    height: 100%;
 }
 
 .custom-header {
@@ -19,4 +21,11 @@
     align-items: center;
     color: #0075ab;
     gap: 25px;
+}
+
+.custom-profile-picture{
+    height: 200px;
+    width: 200px;
+    border-radius: 100%;
+    overflow: hidden;
 }

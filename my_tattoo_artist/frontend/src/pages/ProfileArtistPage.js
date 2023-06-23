@@ -65,7 +65,11 @@ function ProfileArtistPage() {
               <ProfilePicture dataUpdated={handleUpdate} />
             </div>
             <div className='info-artist'>
-              <img src={`http://127.0.0.1:8000${artist.profile_picture}`} alt="" height={200} />
+              <img
+                src={`http://127.0.0.1:8000${artist.profile_picture}`}
+                alt=""
+                className='custom-profile-picture'
+              />
             </div>
           </div>
           <div>

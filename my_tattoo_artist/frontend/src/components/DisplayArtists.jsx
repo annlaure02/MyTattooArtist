@@ -28,7 +28,12 @@ function DisplayArtists() {
                 <Card.Title style={{ color: "black" }}>
                   {artist.last_name} {artist.first_name}</Card.Title>
                 <Card.Text style={{ color: "black" }}>
-                  {artist.artist_name}
+                  <div className=''>
+                    {artist.artist_name}
+                  </div>
+                  <div>
+                    {artist.email}
+                  </div>
                 </Card.Text>
                 <Card.Link href="#">Card Link</Card.Link>
                 <Card.Link href="#">Another Link</Card.Link>

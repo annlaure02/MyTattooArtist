@@ -1,11 +1,12 @@
 import { useDropzone } from 'react-dropzone';
 import React, { useContext, useState, useEffect } from 'react'
-import { PlusLg } from 'react-bootstrap-icons';
+import { FaPlus } from 'react-icons/fa';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Pseudo.css'
+import '../../styles/private-artist-page/Modal.css'
+import '../../styles/private-artist-page/Buttons.css'
 
 function Drawing({ dataUpdated }) {
   const [show, setShow] = useState(false);
@@ -92,7 +93,7 @@ function Drawing({ dataUpdated }) {
     <>
       <div>
         <button className='add-button' onClick={handleShow}>
-          <PlusLg className='plus-icon' /> Ajouter
+          <FaPlus className='plus-icon' />
         </button>
         <Modal
           size="lg"

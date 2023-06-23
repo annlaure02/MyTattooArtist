@@ -1,12 +1,14 @@
 import React, { useContext, useState } from 'react'
-import { PencilFill, PlusLg } from 'react-bootstrap-icons';
+import { FaPlus } from 'react-icons/fa';
+import { BsPencilFill } from 'react-icons/bs';
 import Modal from 'react-bootstrap/Modal';
 import Button from 'react-bootstrap/Button';
 import FloatingLabel from 'react-bootstrap/FloatingLabel';
 import Form from 'react-bootstrap/Form';
 import { useForm } from 'react-hook-form';
 import { ArtistContext } from '../header/ArtistAuth';
-import '../../styles/private-artist-page/Pseudo.css'
+import '../../styles/private-artist-page/Modal.css'
+import '../../styles/private-artist-page/Buttons.css'
 
 function Pseudo({ dataUpdated }) {
   const [show, setShow] = useState(false);
@@ -28,7 +30,7 @@ function Pseudo({ dataUpdated }) {
           },
           body: JSON.stringify(data)
         });
-  
+
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();
           console.log(responseData)
@@ -49,7 +51,7 @@ function Pseudo({ dataUpdated }) {
     <>
       <div>
         <button className='add-button' onClick={handleShow}>
-          <PlusLg className='plus-icon'/> Ajouter
+          <FaPlus className='plus-icon' />
         </button>
         <Modal
           show={show}
@@ -72,7 +74,9 @@ function Pseudo({ dataUpdated }) {
         </Modal>
       </div>
       <div>
-      <button><PencilFill style={{color: 'red'}} /> Modifier</button>
+        <button className='pencil-button'>
+          <BsPencilFill className='pencil-icon' />
+        </button>
       </div>
     </>
   )
