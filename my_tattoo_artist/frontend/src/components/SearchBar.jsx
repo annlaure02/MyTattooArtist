@@ -25,7 +25,8 @@ function SearchBar() {
 
   const handleSearch = async (data) => {
     const searchTerm = data.searchTerm;
-    const searchStyleTerm = data.style;
+    const searchStyleTerm = data.searchStyleTerm;
+    console.log(data)
 
     try {
       let url = 'http://127.0.0.1:8000/api/search/?';
@@ -40,6 +41,7 @@ function SearchBar() {
 
       const response = await fetch(url);
       const searchData = await response.json();
+      console.log(searchData)
       setSearchResults(searchData);
     } catch (error) {
       console.error(error);
@@ -60,9 +62,9 @@ function SearchBar() {
             <select
               className='search-input-style'
               placeholder='styles'
-              {...register('style')}
+              {...register('searchStyleTerm')}
             >
-              <option>Styles</option>
+              <option value='' hidden>Styles</option>
               {styles.map((style) => (
                 <option key={style.id} value={style.style_name}>
                   {style.style_name}
