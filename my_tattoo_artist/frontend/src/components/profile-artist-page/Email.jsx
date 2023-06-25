@@ -10,10 +10,10 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function Biography({ dataUpdated, artist }) {
+function Email({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
-  const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);;
 
   const { register, handleSubmit, setValue } = useForm();
 
@@ -33,6 +33,7 @@ function Biography({ dataUpdated, artist }) {
 
         if (updateResponse.ok) {
           const responseData = await updateResponse.json();
+          console.log(responseData)
           dataUpdated(responseData);
         }
         else {
@@ -46,14 +47,14 @@ function Biography({ dataUpdated, artist }) {
     handleClose();
   };
 
-  if (artist && artist.biography) {
-    setValue('biography', artist.biography);
+  if (artist && artist.email) {
+    setValue('email', artist.email);
   }
 
   return (
     <>
       <div>
-        {artist && artist.biography ? (
+        {artist && artist.email ? (
           <button className='pencil-button' onClick={handleShow}>
             <BsPencilFill className='pencil-icon' />
           </button>
@@ -71,8 +72,8 @@ function Biography({ dataUpdated, artist }) {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
                 <div className='form-container-artist'>
-                  <FloatingLabel controlId="biography" label="Ma biographie" className="mb-3" >
-                    <Form.Control as="textarea" placeholder="" style={{ height: '200px' }} {...register('biography', { required: true })} />
+                <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
+                    <Form.Control type="email" placeholder="" {...register('email')} />
                   </FloatingLabel>
                   <Button variant="primary" className='custom-button-validate' type='submit'>
                     Valider</Button>
@@ -86,4 +87,4 @@ function Biography({ dataUpdated, artist }) {
   )
 }
 
-export default Biography
+export default Email

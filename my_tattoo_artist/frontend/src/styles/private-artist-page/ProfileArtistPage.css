@@ -1,0 +1,113 @@
+.container.profil-artist-page {
+    color: #DCDCDC;
+    background-color: black;
+}
+
+.custom-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 150px;
+    border-bottom: 1px solid #DCDCDC;
+}
+
+.header-title {
+    color: #b36cee;
+    font-size: 70px;
+}
+.row.align-items-start.custom-line {
+    margin-top: 50px;
+}
+.custom-title {
+    display: flex;
+    align-items: center;
+    color: #0075ab;
+    gap: 20px;
+}
+
+h1 {
+    font-family: 'MonteCarlo', cursive;
+    font-size: 52px;
+}
+
+p {
+    padding-top: 8px;
+    font-family: 'Cardo', serif;
+    font-size: 20px;
+}
+p.artist-name {
+    font-size: 37px;
+}
+
+.icon-phone{
+    height: 25px;
+    width: 22px;
+    color: #DCDCDC;
+    margin-right: 10px;
+    padding-bottom: 4px;
+}
+
+.icon-mail{
+    height: 25px;
+    width: 22px;
+    color: #DCDCDC;
+    margin-right: 12px;
+    padding-bottom: 2px;
+}
+
+.custom-profile-picture{
+    height: 170px;
+    width: 170px;
+    border-radius: 100%;
+    border: 2px solid #DCDCDC;
+}
+
+.biography{
+    width: 23em;
+    max-height: 9em;
+    word-wrap: break-word;
+    overflow: scroll;
+}
+
+.all-styles {
+    display: flex;
+    align-items: center;
+    flex-flow: row wrap;
+}
+.styles {
+    background-color: #D3D3D3;
+    margin: 8px;
+    border-radius: 30px;
+    height: 40px;
+}
+
+.style-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: black;
+    padding: 4px 10px 0 10px;
+}
+
+.album {
+    width: 32em;
+    max-height: 18em;
+    overflow: scroll;
+}
+
+.album-picture {
+    margin: 6px;
+    height: 120px;
+    border-radius: 10px;
+}
+
+.drawing {
+    width: 32em;
+    max-height: 18em;
+    overflow: scroll;
+}
+.drawing-picture {
+    margin: 6px;
+    height: 120px;
+    border-radius: 10px;
+}

@@ -63,7 +63,7 @@ function Album({ dataUpdated }) {
   } = useDropzone({
     maxFiles: 5,
     accept: {
-      'image/*': ['.jpeg', '.jpg', '.png', '.gif']
+      'image/*': ['.jpeg', '.jpg', '.png']
     },
     onDrop: (acceptedFiles) => {
       setSelectedFiles(acceptedFiles);
@@ -102,22 +102,23 @@ function Album({ dataUpdated }) {
           onHide={handleClose}
           id='artist-modal'
         >
-          <div className='custom-modal-inside'>
+          <div className='custom-modal-artist'>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
-                <div className='form-container'>
-                  <section className="container">
+                <div className='form-container-artist'>
+                  <section className="container photo">
                     <div {...getRootProps({ className: 'dropzone' })}>
                       <input {...getInputProps()} />
-                      <p>Glissez vos photos ou  Cliquez pour les sélectionner</p>
-                      <em>(5 fichiers maximum)</em>
+                      <p>Glissez vos photos ou Cliquez pour les sélectionner</p>
+                      <em>5 fichiers maximum</em> <br/>
+                      <em>Format: JPG, JPEG ou PNG </em>
                     </div>
                     <aside>
                       {previewFile}
                     </aside>
                   </section>
-                  <input name="album" {...register("album")} /> <br />
-                  <Button variant="primary" className='custom-button-inscription' type='submit'>
+                  <input className='input-album' name="album" {...register("album")} hidden/> <br />
+                  <Button variant="primary" className='custom-button-validate-photo' type='submit'>
                     Valider</Button>
                 </div>
               </Modal.Body>

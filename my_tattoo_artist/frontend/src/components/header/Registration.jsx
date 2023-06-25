@@ -77,19 +77,19 @@ function Registration(props) {
                 {errors.first_name && <p className="error-message">Le champ Prénom est obligatoire.</p>}
                 <div className='space-between-label'>
                   <FloatingLabel controlId="phone" label="Numéro de téléphone*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('phone', { required: true })} />
+                    <Form.Control type="text" placeholder="" maxLength="10" {...register('phone', { required: true })} />
                   </FloatingLabel>
                 </div>
                 {errors.phone && <p className="error-message">Le champ Numéro de téléphone est obligatoire.</p>}
                 <div className='space-between-label'>
                   <FloatingLabel controlId="email" label="Adresse mail*" className="mb-3">
-                    <Form.Control type="email" placeholder="name@example.com" {...register('email', { required: true })} />
+                    <Form.Control type="email" placeholder="" {...register('email', { required: true })} />
                   </FloatingLabel>
                 </div>
                 {errors.email && <p className="error-message">Le champ Adresse mail est obligatoire.</p>}
                 <div className='space-between-label'>
                   <FloatingLabel controlId="password" label="Mot de passe* (8 caractères minimum)" className="mb-3">
-                    <Form.Control type="password" placeholder="min 8 caractères" {...register('password', { required: true, minLength: 8 })} />
+                    <Form.Control type="password" placeholder="" {...register('password', { required: true, minLength: 8 })} />
                   </FloatingLabel>
                 </div>
                 {errors.password && <p className="error-message">Le champ Mot de passe est obligatoire et doit contenir au moins 8 caractères.</p>}

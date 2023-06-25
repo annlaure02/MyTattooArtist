@@ -28,8 +28,8 @@ function Navbar(props) {
               <Link to='/' className="nav-links">Accueil</Link></li>
             <li className="nav-item">
               <Link to='/artistes' className="nav-links">Artistes</Link></li>
-            <li className="nav-item">
-              <Link to='/studios' className="nav-links">Studios</Link></li>
+            {/* <li className="nav-item">
+              <Link to='/studios' className="nav-links">Studios</Link></li> */}
             <li className="nav-item">
               <Link to='/types-de-tatouage' className="nav-links">Types de tatouage</Link></li>
           </ul>

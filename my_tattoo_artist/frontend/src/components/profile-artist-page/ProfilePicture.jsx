@@ -9,12 +9,12 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function ProfilePicture({ dataUpdated }) {
+function ProfilePicture({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const { artistId } = useContext(ArtistContext);
 
@@ -44,39 +44,44 @@ function ProfilePicture({ dataUpdated }) {
     handleClose();
   };
 
+  if (artist && artist.profile_picture) {
+    setValue('profile_picture', artist.profile_picture);
+  }
+
   return (
     <>
       <div>
-        <button className='add-button' onClick={handleShow}>
-          <FaPlus className='plus-icon' />
-        </button>
+        {artist && artist.profile_picture ? (
+          <button className='pencil-button' onClick={handleShow}>
+            <BsPencilFill className='pencil-icon' />
+          </button>
+        ) : (
+          <button className='add-button' onClick={handleShow}>
+            <FaPlus className='plus-icon' />
+          </button>
+        )}
         <Modal
           show={show}
           onHide={handleClose}
           id='artist-modal'
         >
-          <div className='custom-modal-inside'>
+          <div className='custom-modal-artist'>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
                 <div className='form-container'>
                   <Form.Group controlId="profile_picture" className="mb-3">
-                    <Form.Label>Photo de profil</Form.Label>
+                    <Form.Label><b>Photo de profil</b></Form.Label>
                     <Form.Control
                       type="file"
                       {...register('profile_picture', { required: true })} />
                   </Form.Group>
-                  <Button variant="primary" className='custom-button-inscription' type='submit'>
+                  <Button variant="primary" className='custom-button-validate' type='submit'>
                     Valider</Button>
                 </div>
               </Modal.Body>
             </form>
           </div>
         </Modal>
-      </div>
-      <div>
-        <button className='pencil-button'>
-          <BsPencilFill className='pencil-icon' />
-        </button>
       </div>
     </>
   )

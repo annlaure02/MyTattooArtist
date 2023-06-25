@@ -1,8 +1,8 @@
-/* icon add info */
+/* icon plus */
 
 .plus-icon {
     color: #1aa314;
-    font-size: 35px;
+    font-size: 33px;
 }
 
 .add-button {
@@ -10,7 +10,7 @@
     width: 45px;
     height: 45px;
     border: none;
-    padding-bottom: 5px;
+    padding-bottom: 10px;
 }
 
 .add-button:hover{
@@ -23,11 +23,11 @@
     -moz-transform: translate(0px,2px);
 }
 
-/* icon modify info */
+/* icon modify */
 
 .pencil-icon {
-    color: white;
-    font-size: 30px;
+    color: #ba9d84;
+    font-size: 29px;
 }
 
 .pencil-button {
@@ -35,7 +35,7 @@
     width: 45px;
     height: 45px;
     border: none;
-    padding-bottom: 5px;
+    padding-bottom: 15px;
 }
 
 .pencil-button:hover{

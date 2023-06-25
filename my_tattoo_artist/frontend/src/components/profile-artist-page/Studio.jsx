@@ -10,12 +10,12 @@ import { ArtistContext } from '../header/ArtistAuth';
 import '../../styles/private-artist-page/Modal.css'
 import '../../styles/private-artist-page/Buttons.css'
 
-function Studio({ dataUpdated }) {
+function Studio({ dataUpdated, artist }) {
   const [show, setShow] = useState(false);
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
-  const { register, handleSubmit } = useForm();
+  const { register, handleSubmit, setValue } = useForm();
 
   const { artistId } = useContext(ArtistContext)
 
@@ -46,54 +46,80 @@ function Studio({ dataUpdated }) {
     handleClose();
   };
 
+  if (artist && artist.studio_name) {
+    setValue('studio_name', artist.studio_name);
+    setValue('studio_number_street', artist.studio_number_street);
+    setValue('studio_street', artist.studio_street);
+    setValue('studio_post_code', artist.studio_post_code);
+    setValue('studio_city', artist.studio_city);
+    setValue('studio_state', artist.studio_state);
+    setValue('studio_country', artist.studio_country);
+  }
+
   return (
     <>
       <div>
-        <button className='add-button' onClick={handleShow}>
-          <FaPlus className='plus-icon' />
-        </button>
+        {artist && artist.studio_name ? (
+          <button className='pencil-button' onClick={handleShow}>
+            <BsPencilFill className='pencil-icon' />
+          </button>
+        ) : (
+          <button className='add-button' onClick={handleShow}>
+            <FaPlus className='plus-icon' />
+          </button>
+        )}
         <Modal
           show={show}
           onHide={handleClose}
           id='artist-modal'
         >
-          <div className='custom-modal-inside'>
+          <div className='custom-modal-artist'>
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
-                <div className='form-container'>
-                  <FloatingLabel controlId="studio_name" label="Nom du Studio*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_name', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_number_street" label="Numéro*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_number_street', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_street" label="Rue*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_street', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_post_code" label="Code Postal*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_post_code', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_city" label="Ville*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_city', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_state" label="Numéro de département*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_state', { required: true })} />
-                  </FloatingLabel>
-                  <FloatingLabel controlId="studio_country" label="Pays*" className="mb-3">
-                    <Form.Control type="text" placeholder="" {...register('studio_country', { required: true })} />
-                  </FloatingLabel>
-                  <Button variant="primary" className='custom-button-inscription' type='submit'>
+                <div className='form-container-artist'>
+                  <h2 className='studio'>Coordonnée du Studio</h2>
+                  <div>
+                    <FloatingLabel controlId="studio_name" label="Nom du Studio*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_name', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_number_street" label="Numéro*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_number_street', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_street" label="Rue*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_street', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_post_code" label="Code Postal*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_post_code', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_city" label="Ville*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_city', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_state" label="Numéro de département*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_state', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <div className='space-between-label'>
+                    <FloatingLabel controlId="studio_country" label="Pays*" className="mb-3">
+                      <Form.Control type="text" placeholder="" {...register('studio_country', { required: true })} />
+                    </FloatingLabel>
+                  </div>
+                  <Button variant="primary" className='custom-button-validate' type='submit'>
                     Valider</Button>
                 </div>
               </Modal.Body>
             </form>
           </div>
         </Modal>
-      </div>
-      <div>
-        <button className='pencil-button'>
-          <BsPencilFill className='pencil-icon' />
-        </button>
       </div>
     </>
   )
