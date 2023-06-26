@@ -3,6 +3,7 @@ import { useForm } from 'react-hook-form';
 import { Search } from 'react-bootstrap-icons';
 import Card from 'react-bootstrap/Card';
 import '../styles/SearchBar.css';
+import '../styles/DisplayPages.css';
 
 function SearchBar() {
   const [styles, setStyles] = useState([]);
@@ -26,7 +27,6 @@ function SearchBar() {
   const handleSearch = async (data) => {
     const searchTerm = data.searchTerm;
     const searchStyleTerm = data.searchStyleTerm;
-    console.log(data)
 
     try {
       let url = 'http://127.0.0.1:8000/api/search/?';
@@ -50,7 +50,8 @@ function SearchBar() {
 
   return (
     <>
-      <div className='preview-zone'>
+    <div className='searchBar'>
+      <div className='container home-search'>
         <section className='search--icon'>
           <form className='search__form' onSubmit={handleSubmit(handleSearch)}>
             <input
@@ -77,21 +78,48 @@ function SearchBar() {
           </form>
         </section>
       </div>
-      <div>
+      <div className='custom-page'>
         {searchResults.map((result) => (
           <div key={result.id}>
-            <Card className='custom-card' style={{ width: '18rem' }}>
-              <Card.Body>
-                <Card.Title style={{ color: 'black' }}>
-                  {result.artist_name}
+            <Card className='custom-card'>
+              <Card.Body >
+                <Card.Title className='card-title'>
+                  <img
+                    src={`${result.profile_picture}`}
+                    alt=""
+                    className='profile-picture'
+                  />
+                  <p className='card-artist-name'>{result.artist_name}</p>
                 </Card.Title>
-                <Card.Text style={{ color: 'black' }}>
-                  {result.biography}
+                <Card.Text >
+                  <div>
+                    <p className='card-fields'>Adresse</p>
+                    <p className='card-infos'>
+                      <b>{result.studio_name}</b>
+                      <br />
+                      {result.studio_number_street} {result.studio_street}
+                      <br />
+                      {result.studio_post_code} {result.studio_city}
+                    </p>
+                  </div>
+                  <div>
+                    <p className='card-fields'>Styles</p>
+                      {result.tattoo_style ? (
+                        <div className='card-all-styles'>
+                          {result.tattoo_style.map(style => (
+                            <div className='card-styles' key={style.id}>
+                              <p className='card-style-item'>{style.style_name}</p>
+                            </div>
+                          ))}
+                        </div>
+                      ) : (<p>Fail to display tattoo styles</p>)}
+                  </div>
                 </Card.Text>
               </Card.Body>
             </Card>
           </div>
         ))}
+      </div>
       </div>
     </>
   );

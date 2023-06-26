@@ -77,7 +77,7 @@ function Registration(props) {
                 {errors.first_name && <p className="error-message">Le champ Prénom est obligatoire.</p>}
                 <div className='space-between-label'>
                   <FloatingLabel controlId="phone" label="Numéro de téléphone*" className="mb-3">
-                    <Form.Control type="text" placeholder="" maxLength="10" {...register('phone', { required: true })} />
+                    <Form.Control type="text" placeholder="" pattern="[0-9]*" maxLength="10" {...register('phone', { required: true })} />
                   </FloatingLabel>
                 </div>
                 {errors.phone && <p className="error-message">Le champ Numéro de téléphone est obligatoire.</p>}

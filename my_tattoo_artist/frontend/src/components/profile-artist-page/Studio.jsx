@@ -77,7 +77,7 @@ function Studio({ dataUpdated, artist }) {
             <form onSubmit={handleSubmit(onSubmit)}>
               <Modal.Body>
                 <div className='form-container-artist'>
-                  <h2 className='studio'>Coordonnée du Studio</h2>
+                  <h2 className='studio'>Coordonnées du Studio</h2>
                   <div>
                     <FloatingLabel controlId="studio_name" label="Nom du Studio*" className="mb-3">
                       <Form.Control type="text" placeholder="" {...register('studio_name', { required: true })} />

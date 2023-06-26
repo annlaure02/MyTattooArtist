@@ -1,6 +1,5 @@
 .container.profil-artist-page {
     color: #DCDCDC;
-    background-color: black;
 }
 
 .custom-header {
@@ -12,7 +11,7 @@
 }
 
 .header-title {
-    color: #b36cee;
+    color: #dbd4e0;
     font-size: 70px;
 }
 .row.align-items-start.custom-line {
@@ -32,7 +31,6 @@ h1 {
 
 p {
     padding-top: 8px;
-    font-family: 'Cardo', serif;
     font-size: 20px;
 }
 p.artist-name {
@@ -63,7 +61,7 @@ p.artist-name {
 }
 
 .biography{
-    width: 23em;
+    min-width: 20em;
     max-height: 9em;
     word-wrap: break-word;
     overflow: scroll;
@@ -90,8 +88,10 @@ p.artist-name {
 }
 
 .album {
-    width: 32em;
-    max-height: 18em;
+    min-width: 20em;
+    max-height: 270px;
+    padding-left: 90px;
+    padding-right: 90px;
     overflow: scroll;
 }
 
@@ -102,9 +102,12 @@ p.artist-name {
 }
 
 .drawing {
-    width: 32em;
-    max-height: 18em;
+    min-width: 20em;
+    max-height: 270px;
+    padding-left: 90px;
+    padding-right: 90px;
     overflow: scroll;
+    margin-bottom: 150px;
 }
 .drawing-picture {
     margin: 6px;

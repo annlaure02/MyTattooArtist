@@ -11,3 +11,7 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+
+p {
+    font-family: 'Ysabeau Office', sans-serif;
+}

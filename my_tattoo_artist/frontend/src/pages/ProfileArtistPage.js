@@ -188,7 +188,6 @@ function ProfileArtistPage() {
                   <Album dataUpdated={handleUpdate} />
                 </div>
               </div>
-              <div className='col'>
                 <div className='info-artist'>
                   <div className='album'>
                     {artist.album && artist.album.map(picture => (
@@ -197,7 +196,6 @@ function ProfileArtistPage() {
                         src={`http://127.0.0.1:8000${picture.image}`}
                         alt="" />
                     ))}
-                  </div>
                 </div>
               </div>
             </div>
@@ -210,7 +208,6 @@ function ProfileArtistPage() {
                   <Drawing dataUpdated={handleUpdate} />
                 </div>
               </div>
-              <div className='col'>
                 <div className='info-artist'>
                   <div className='drawing'>
                     {artist.drawing && artist.drawing.map(drawing => (
@@ -220,7 +217,6 @@ function ProfileArtistPage() {
                         alt="" />
                     ))}
                   </div>
-                </div>
               </div>
             </div>
           </div>
