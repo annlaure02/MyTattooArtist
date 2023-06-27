@@ -81,18 +81,18 @@ class UserArtistSerializer(serializers.ModelSerializer):
         uploaded_images_drawing = validated_data.pop('uploaded_images_drawing', [])
 
         instance = super().update(instance, validated_data)
-        tattoo_obj = []
 
-        instance.tattoo_style.clear()
-        for tattoo_style_data in tattoo_data:
-            tattoo, created = TattooStyle.objects.get_or_create(**tattoo_style_data)
-            tattoo_obj.append(tattoo)
-        instance.tattoo_style.set(tattoo_obj)
+        if tattoo_data:
+            tattoo_obj = []
+            for tattoo_style_data in tattoo_data:
+                tattoo, created = TattooStyle.objects.get_or_create(**tattoo_style_data)
+                tattoo_obj.append(tattoo)
+            instance.tattoo_style.set(tattoo_obj)
 
         for image in uploaded_images_album:
-            UserArtistAlbum.objects.create(user_artist=instance, image=image)
+            UserArtistAlbum.objects.get_or_create(user_artist=instance, image=image)
 
         for image in uploaded_images_drawing:
-            UserArtistDrawing.objects.create(user_artist=instance, image=image)
+            UserArtistDrawing.objects.get_or_create(user_artist=instance, image=image)
 
         return instance
