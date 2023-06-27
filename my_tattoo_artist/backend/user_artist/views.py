@@ -113,9 +113,8 @@ class TattooStyleFilter(filters.BaseFilterBackend):
 
 
 class UserArtistAPIView(generics.ListCreateAPIView):
-    queryset = UserArtist.objects.all()
+    queryset = UserArtist.objects.filter(is_superuser=False)
     serializer_class = UserArtistSerializer
     filter_backends = [TattooStyleFilter, filters.SearchFilter]
     search_fields = ['artist_name', 'studio_city', 'studio_state']
     permission_classes = (AllowAny,)
-        
