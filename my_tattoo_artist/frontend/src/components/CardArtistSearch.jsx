@@ -5,14 +5,14 @@ import { MdEmail } from 'react-icons/md';
 import { HiHome } from 'react-icons/hi';
 import '../styles/CardArtist.css'
 
-function CardArtist({ artist }) {
+function CardArtistSearch({ artist }) {
   return (
     <div>
       <Card className='custom-card-artist'>
         <Card.Body >
           <Card.Title className='card-title card-artist'>
             <img
-              src={`http://127.0.0.1:8000${artist.profile_picture}`}
+              src={`${artist.profile_picture}`}
               alt=""
               className='profile-picture card-artist'
             />
@@ -69,7 +69,7 @@ function CardArtist({ artist }) {
                 {artist.album && artist.album.map(picture => (
                   <img className='album-picture card-artist'
                     key={picture.id}
-                    src={`http://127.0.0.1:8000${picture.image}`}
+                    src={`${picture.image}`}
                     alt="" />
                 ))}
               </div>
@@ -80,7 +80,7 @@ function CardArtist({ artist }) {
                 {artist.drawing && artist.drawing.map(drawing => (
                   <img className='drawing-picture card-artist'
                     key={drawing.id}
-                    src={`http://127.0.0.1:8000${drawing.image}`}
+                    src={`${drawing.image}`}
                     alt="" />
                 ))}
               </div>
@@ -92,4 +92,4 @@ function CardArtist({ artist }) {
   )
 }
 
-export default CardArtist
+export default CardArtistSearch

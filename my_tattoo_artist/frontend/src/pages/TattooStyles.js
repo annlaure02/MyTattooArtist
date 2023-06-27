@@ -4,8 +4,12 @@ import Navbar from '../components/header/Navbar';
 function TattooStyles() {
   return (
     <div>
-      <Navbar />
-      <div style={{color: "white"}}> Styles</div>
+      <div className='container'>
+        <div>
+          <Navbar />
+        </div>
+        <div style={{ color: "white" }}> Styles</div>
+      </div>
     </div>
   )
 }

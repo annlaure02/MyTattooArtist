@@ -12,6 +12,18 @@ body {
     background-size: cover;
 }
 
+@font-face {
+    font-family: 'Brother Tattoo demo';
+    src: local('Brother Tattoo demo'), 
+    url('../src/fonts/brother-tattoo/BrotherTattoo_Demo.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Ysabeau Office Regular';
+    src: local('Ysabeau Office Regular'), 
+    url('../src/fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf') format('truetype');
+}
+
 p {
-    font-family: 'Ysabeau Office', sans-serif;
+    font-family: 'Ysabeau Office Regular';
 }

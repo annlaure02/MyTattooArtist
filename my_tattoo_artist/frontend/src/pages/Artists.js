@@ -8,20 +8,18 @@ function Artists() {
 
   return (
     <div >
-      <div>
-        <Navbar />
-      </div>
       <div className='container'>
         <div>
-          <div className="container" >
-            <div>
-              <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
-            </div>
-            <SearchBar />
-          </div>
+          <Navbar />
+        </div>
+        <div>
           <div>
-            <DisplayArtists />
+            <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
           </div>
+          <SearchBar />
+        </div>
+        <div>
+          <DisplayArtists />
         </div>
       </div>
     </div>

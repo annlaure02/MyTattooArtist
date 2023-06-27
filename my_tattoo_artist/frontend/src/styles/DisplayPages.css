@@ -13,13 +13,13 @@
     padding: 10px 8px 10px 8px;
     cursor: pointer;
     width: 23rem;
-    background-image: url(../images/Backgroun-card.jpg);background-position: center center;
+    background-image: url(../images/Backgroun-card.jpg);
+    background-position: center center;
     background-size: cover;
     overflow: hidden;
 }
 
 .card-title {
-    color: black;
     display: flex;
     align-items: center;
     gap: 25px;

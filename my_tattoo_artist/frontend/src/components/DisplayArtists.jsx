@@ -1,10 +1,13 @@
 import React, { useEffect, useState } from 'react'
-import Card from 'react-bootstrap/Card';
+import { Card, Modal } from 'react-bootstrap';
 import '../styles/DisplayPages.css'
+import CardArtist from './CardArtist';
 
 
 function DisplayArtists() {
   const [artists, setArtists] = useState([])
+  const [selectArtist, setSelectArtist] = useState(null)
+  const [show, setShow] = useState(false);
 
   const fetchData = async () => {
     const response = await fetch('http://127.0.0.1:8000/api/ma-page-artiste/')
@@ -17,12 +20,17 @@ function DisplayArtists() {
     fetchData()
   }, [])
 
+  const handleClick = (artist) => {
+    setSelectArtist(artist);
+    setShow(true)
+  }
+
   return (
     <div>
       <div className='artists-page'>
         <div className='custom-page'>
           {artists.map(artist => (
-            <div key={artist.id}>
+            <div key={artist.id} onClick={() => handleClick(artist)}>
               <Card className='custom-card'>
                 <Card.Body >
                   <Card.Title className='card-title'>
@@ -62,6 +70,20 @@ function DisplayArtists() {
             </div>
           ))};
         </div>
+      </div>
+      <div>
+        {selectArtist && (
+          <Modal
+            show={show} 
+            onHide={() => setShow(false)}
+            size='xl'
+            className='card-modal'
+            >
+            <Modal.Body closeButton>
+              <CardArtist artist={selectArtist} />
+            </Modal.Body>
+          </Modal>
+        )}
       </div>
     </div>
   )

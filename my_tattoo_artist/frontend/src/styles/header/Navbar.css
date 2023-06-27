@@ -1,36 +1,45 @@
-
-#custom-container {
+.navbar {
   display: flex;
   justify-content: space-between;
   align-items: center;
   font-size: 1.4rem;
-  box-sizing: border-box;
   height: 170px;
   border-bottom: 2px solid white;
 
 }
 
 .navbar-logo {
-  margin-top: 10px;
+  display: flex;
+  padding-top: 10px;
   cursor: pointer;
 }
 
+.logo-image {
+  height: 90px;
+  padding-bottom: 25px;
+}
+
+.logo-title {
+  font-family: 'Brother Tattoo demo';
+  font-size: 65px;
+  color: red;
+  padding-top: 2px;
+}
+
 .navbar-menu {
-  display: grid;
-  grid-template-columns: repeat(5, auto);
-  grid-gap: 10px;
+  display: flex;
   list-style: none;
 }
 
 .nav-item {
   display: flex;
-  align-items: center;
-  padding-top: 65px;
+  flex-direction: column;
+  padding-top: 90px;
 }
 
 .nav-links {
   color: white;
-  text-decoration:none;
+  text-decoration: none;
   padding: 0.5rem 1rem;
   margin: 0;
 }
@@ -60,10 +69,10 @@
   display: none;
 }
 
-@media screen and (max-width: 1396px) {
+@media screen and (max-width: 1240px) {
   .menu-toggle {
     display: block;
-    justify-content: right;
+    justify-content: left;
     color: white;
     background: transparent;
     border: none;
@@ -79,13 +88,14 @@
     display: none;
   }
   .navbar-menu.active {
-    display: block;
+    display: flex;
     flex-direction: column;
+    background-color: black;
   }
   
-
   .navbar-connection.active {
     display: flex;
     flex-direction: column;
+    background-color: black;
   }
 }
