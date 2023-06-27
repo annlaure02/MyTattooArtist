@@ -29,6 +29,7 @@
 .navbar-menu {
   display: flex;
   list-style: none;
+  gap: 20px;
 }
 
 .nav-item {
@@ -40,7 +41,6 @@
 .nav-links {
   color: white;
   text-decoration: none;
-  padding: 0.5rem 1rem;
   margin: 0;
 }
 

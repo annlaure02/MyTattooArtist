@@ -24,6 +24,12 @@ body {
     url('../src/fonts/Ysabeau_Office/static/YsabeauOffice-Regular.ttf') format('truetype');
 }
 
+@font-face {
+    font-family: 'MonteCarlo Regular';
+    src: local('MonteCarlo Regular'), 
+    url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
+}
+
 p {
     font-family: 'Ysabeau Office Regular';
 }
