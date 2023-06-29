@@ -110,12 +110,32 @@ class TattooStyleFilter(filters.BaseFilterBackend):
         if style_param:
             queryset = queryset.filter(tattoo_style__style_name=style_param)
         return queryset
+    
+class ArtistNameFilter(filters.BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        style_param = request.query_params.get('artist_name')
+        if style_param:
+            queryset = queryset.filter(artist_name=style_param)
+        return queryset
+    
+class StudioCityFilter(filters.BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        style_param = request.query_params.get('studio_city')
+        if style_param:
+            queryset = queryset.filter(studio_city=style_param)
+        return queryset
+    
+class StudioStateFilter(filters.BaseFilterBackend):
+    def filter_queryset(self, request, queryset, view):
+        style_param = request.query_params.get('studio_state')
+        if style_param:
+            queryset = queryset.filter(studio_state=style_param)
+        return queryset
 
 
 class UserArtistAPIView(generics.ListCreateAPIView):
     queryset = UserArtist.objects.filter(is_superuser=False)
     serializer_class = UserArtistSerializer
-    filter_backends = [TattooStyleFilter, filters.SearchFilter]
-    search_fields = ['artist_name', 'studio_city', 'studio_state']
+    filter_backends = [TattooStyleFilter, ArtistNameFilter, StudioStateFilter, StudioCityFilter, filters.SearchFilter]
     permission_classes = (AllowAny,)
         
