@@ -36,6 +36,8 @@
   display: flex;
   flex-direction: column;
   padding-top: 90px;
+  font-family: 'Ysabeau Office Regular';
+  font-size: 25px;
 }
 
 .nav-links {
@@ -88,14 +90,18 @@
     display: none;
   }
   .navbar-menu.active {
-    display: flex;
+    display: block;
+    position: relative;
     flex-direction: column;
     background-color: black;
+    z-index: 1;
   }
   
   .navbar-connection.active {
-    display: flex;
-    flex-direction: column;
+    display: block;
+    align-items: center;
     background-color: black;
+    position: relative;
+    z-index: 1;
   }
 }

@@ -10,7 +10,7 @@
     width: 45px;
     height: 45px;
     border: none;
-    padding-bottom: 10px;
+    padding-top: 4px;
 }
 
 .add-button:hover{
@@ -35,7 +35,6 @@
     width: 45px;
     height: 45px;
     border: none;
-    padding-bottom: 15px;
 }
 
 .pencil-button:hover{

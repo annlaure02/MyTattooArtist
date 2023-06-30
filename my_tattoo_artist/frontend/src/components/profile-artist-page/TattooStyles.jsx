@@ -22,7 +22,7 @@ function TattooStyles({ dataUpdated, artist }) {
 
   useEffect(() => {
     const fetchData = async () => {
-      const response = await fetch(`http://127.0.0.1:8000/api/tattoo-style/`)
+      const response = await fetch(`http://127.0.0.1:8000/project/api/tattoo-style/`)
       const data = await response.json()
       setStyles(data)
     };
@@ -37,7 +37,7 @@ function TattooStyles({ dataUpdated, artist }) {
       return style;
     });
 
-    const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
+    const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {

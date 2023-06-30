@@ -76,34 +76,41 @@
 
 .album.card-artist {
     min-width: 20em;
-    max-height: 350px;
+    max-height: 360px;
     padding-left: 50px;
     padding-right: 50px;
     overflow: scroll;
     background-color: white;
-
 }
 
 .album-picture.card-artist  {
-    margin: 6px;
+    margin: 15px 7px 15px 7px;
+    height: 150px;
+    border-radius: 10px;
+    cursor: pointer;
+    border: 1px solid #DCDCDC;
+}
+  
+.drawing.card-artist  {
+    min-width: 20em;
+    max-height: 360px;
+    padding-left: 50px;
+    padding-right: 50px;
+    overflow: scroll;
+    background-color: white;
+}
+.drawing-picture.card-artist  {
+    margin: 15px 7px 15px 7px;
     height: 150px;
     border-radius: 10px;
     cursor: pointer;
     border: 1px solid #DCDCDC;
 }
 
-.drawing.card-artist  {
-    min-width: 20em;
-    max-height: 350px;
-    padding-left: 50px;
-    padding-right: 50px;
-    overflow: scroll;
-    margin-bottom: 150px;
-}
-.drawing-picture.card-artist  {
-    margin: 6px;
-    height: 150px;
-    border-radius: 10px;
-    cursor: pointer;
-    border: 1px solid #DCDCDC;
+.real-size {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-height: 700px;
 }

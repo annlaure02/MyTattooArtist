@@ -17,7 +17,7 @@ function Registration(props) {
   const redirectArtistPage = useNavigate();
 
   const onSubmit = async (data) => {
-    await fetch('http://127.0.0.1:8000/api/register/', {
+    await fetch('http://127.0.0.1:8000/user_artist/api/register/', {
       method: 'POST',
       headers: {
         'Content-Type': 'application/json'

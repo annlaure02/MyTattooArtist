@@ -95,7 +95,7 @@ function Studio({ dataUpdated, artist }) {
                   </div>
                   <div className='space-between-label'>
                     <FloatingLabel controlId="studio_post_code" label="Code Postal*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_post_code', { required: true })} />
+                      <Form.Control type="text" placeholder="" maxLength="5" {...register('studio_post_code', { required: true })} />
                     </FloatingLabel>
                   </div>
                   <div className='space-between-label'>
@@ -105,7 +105,7 @@ function Studio({ dataUpdated, artist }) {
                   </div>
                   <div className='space-between-label'>
                     <FloatingLabel controlId="studio_state" label="Numéro de département*" className="mb-3">
-                      <Form.Control type="text" placeholder="" {...register('studio_state', { required: true })} />
+                      <Form.Control type="text" placeholder="" maxLength="2" {...register('studio_state', { required: true })} />
                     </FloatingLabel>
                   </div>
                   <div className='space-between-label'>

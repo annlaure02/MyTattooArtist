@@ -11,6 +11,9 @@ body {
     background-attachment: fixed;
     background-size: cover;
 }
+p {
+    font-family: 'Ysabeau Office Regular';
+}
 
 @font-face {
     font-family: 'Brother Tattoo demo';
@@ -28,8 +31,4 @@ body {
     font-family: 'MonteCarlo Regular';
     src: local('MonteCarlo Regular'), 
     url('../src/fonts/MonteCarlo/MonteCarlo-Regular.ttf') format('truetype');
-}
-
-p {
-    font-family: 'Ysabeau Office Regular';
 }

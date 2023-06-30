@@ -16,7 +16,7 @@ function Login() {
 
   const onSubmit = async (data) => {
     try {
-      const response = await fetch('http://127.0.0.1:8000/api/login/', {
+      const response = await fetch('http://127.0.0.1:8000/user_artist/api/login/', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json'
@@ -30,7 +30,7 @@ function Login() {
 
       login(artistId);
 
-      const artistResponse = await fetch(`http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`);
+      const artistResponse = await fetch(`http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`);
       const artistData = await artistResponse.json();
       console.log(artistData);
 

@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState } from 'react';
 import { Card } from 'react-bootstrap';
 import { BsFillTelephoneFill } from 'react-icons/bs';
 import { MdEmail } from 'react-icons/md';
@@ -6,6 +6,19 @@ import { HiHome } from 'react-icons/hi';
 import '../styles/CardArtist.css'
 
 function CardArtistSearch({ artist }) {
+  const [selectedPicture, setSelectedPicture] = useState(null);
+  const [selectedDrawing, setSelectedDrawing] = useState(null);
+
+  const handleClick = (picture, drawing) => {
+    setSelectedPicture(picture);
+    setSelectedDrawing(drawing);
+  };
+
+  const handleClose = () => {
+    setSelectedPicture(null);
+    setSelectedDrawing(null);
+  };
+
   return (
     <div>
       <Card className='custom-card-artist'>
@@ -67,23 +80,47 @@ function CardArtistSearch({ artist }) {
               <h3 className='card-fields card-artist'><b>Photos</b></h3>
               <div className='album card-artist'>
                 {artist.album && artist.album.map(picture => (
-                  <img className='album-picture card-artist'
+                  <img
+                    className='album-picture card-artist'
                     key={picture.id}
                     src={`${picture.image}`}
-                    alt="" />
+                    alt=""
+                    onClick={() => handleClick(picture, null)}
+                  />
                 ))}
               </div>
+              {selectedPicture && (
+                <div onClick={handleClose}>
+                  <img
+                    className='real-size'
+                    src={`${selectedPicture.image}`}
+                    alt=""
+                  />
+                </div>
+              )}
             </div>
             <div>
-              <h3 className='card-fields card-artist'><b>Dessins</b></h3>
+              <h3 className='card-fields card-artist'><b>Flash</b></h3>
               <div className='drawing card-artist'>
                 {artist.drawing && artist.drawing.map(drawing => (
-                  <img className='drawing-picture card-artist'
+                  <img
+                    className='drawing-picture card-artist'
                     key={drawing.id}
                     src={`${drawing.image}`}
-                    alt="" />
+                    alt=""
+                    onClick={() => handleClick(null, drawing)}
+                  />
                 ))}
               </div>
+              {selectedDrawing && (
+                <div onClick={handleClose}>
+                  <img
+                    className='real-size'
+                    src={`${selectedDrawing.image}`}
+                    alt=""
+                  />
+                </div>
+              )}
             </div>
           </Card.Text>
         </Card.Body>

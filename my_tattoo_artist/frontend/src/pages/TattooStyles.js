@@ -1,5 +1,6 @@
 import React from 'react'
 import Navbar from '../components/header/Navbar';
+import DisplayStyles from '../components/DisplayStyles';
 
 function TattooStyles() {
   return (
@@ -8,7 +9,9 @@ function TattooStyles() {
         <div>
           <Navbar />
         </div>
-        <div style={{ color: "white" }}> Styles</div>
+        <div>
+          <DisplayStyles />
+        </div>
       </div>
     </div>
   )

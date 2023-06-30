@@ -22,7 +22,7 @@ function ProfilePicture({ dataUpdated, artist }) {
     const formData = new FormData();
     formData.append('profile_picture', data.profile_picture[0]);
 
-    const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
+    const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {

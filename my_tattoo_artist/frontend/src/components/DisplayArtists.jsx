@@ -10,7 +10,7 @@ function DisplayArtists() {
   const [show, setShow] = useState(false);
 
   const fetchData = async () => {
-    const response = await fetch('http://127.0.0.1:8000/api/ma-page-artiste/')
+    const response = await fetch('http://127.0.0.1:8000/user_artist/api/ma-page-artiste/')
     const data = await response.json()
     setArtists(data)
     console.log(data)

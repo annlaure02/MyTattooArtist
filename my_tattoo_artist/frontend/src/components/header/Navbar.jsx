@@ -39,7 +39,7 @@ function Navbar(props) {
                 {/* <li className="nav-item">
               <Link to='/studios' className="nav-links">Studios</Link></li> */}
                 <li className="nav-item">
-                  <Link to='/types-de-tatouage' className="nav-links">Types de tatouage</Link></li>
+                  <Link to='/types-de-tatouage' className="nav-links">Styles de tatouage</Link></li>
               </ul>
             </div>
             <div className={menuOpen ? "navbar-connection active" : "navbar-connection"}>

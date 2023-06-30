@@ -33,7 +33,7 @@ function Drawing({ dataUpdated }) {
       formData.append('uploaded_images_drawing', selectedFiles[i]);
     }
 
-    const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
+    const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {
@@ -60,7 +60,7 @@ function Drawing({ dataUpdated }) {
     getRootProps,
     getInputProps
   } = useDropzone({
-    maxFiles: 5,
+    maxFiles: 10,
     accept: {
       'image/*': ['.jpeg', '.jpg', '.png']
     },
@@ -109,7 +109,7 @@ function Drawing({ dataUpdated }) {
                     <div {...getRootProps({ className: 'dropzone' })}>
                       <input {...getInputProps()} />
                       <p>Glissez vos dessins ou Cliquez pour les sélectionner</p>
-                      <em>5 fichiers maximum</em> <br/>
+                      <em>10 fichiers maximum à la fois</em> <br/>
                       <em>Format: JPG, JPEG ou PNG </em>
                     </div>
                     <aside>

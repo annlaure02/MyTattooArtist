@@ -21,7 +21,7 @@ function ProfileArtistPage() {
   useEffect(() => {
     const fetchData = async () => {
       try {
-        const response = await fetch(`http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`);
+        const response = await fetch(`http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`);
         if (response.ok) {
           const data = await response.json();
           setArtist(data);
