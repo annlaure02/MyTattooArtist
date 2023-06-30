@@ -204,7 +204,7 @@ function ProfileArtistPage() {
             <div className='row align-items-start custom-line'>
               <div className='col'>
                 <div className='custom-title'>
-                  <h1>Dessins / Flash</h1>
+                  <h1>Flash</h1>
                   <Drawing dataUpdated={handleUpdate} />
                 </div>
               </div>

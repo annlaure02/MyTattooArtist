@@ -20,7 +20,7 @@ function Studio({ dataUpdated, artist }) {
   const { artistId } = useContext(ArtistContext)
 
   const onSubmit = async (data) => {
-    const url = `http://127.0.0.1:8000/api/ma-page-artiste/${artistId}/`
+    const url = `http://127.0.0.1:8000/user_artist/api/ma-page-artiste/${artistId}/`
     try {
       if (artistId) {
         const updateResponse = await fetch(url, {

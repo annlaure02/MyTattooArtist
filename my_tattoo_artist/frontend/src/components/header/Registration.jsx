@@ -42,7 +42,7 @@ function Registration(props) {
 
   return (
     <>
-      <Button variant="primary" onClick={handleShow}>
+      <Button variant="secondary" onClick={handleShow}>
         Inscription
       </Button>
       <Modal

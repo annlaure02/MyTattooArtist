@@ -1,8 +1,10 @@
+import CardHomeInfo from '../components/CardHomeInfo';
 import SearchBar from '../components/SearchBar';
 import Navbar from '../components/header/Navbar';
 import '../styles/Home.css'
 
 function Home() {
+
 
   return (
     <div>
@@ -16,8 +18,8 @@ function Home() {
         <div>
           <SearchBar />
         </div>
-        <div>
-          
+        <div className='card-home'>
+          <CardHomeInfo />
         </div>
       </div>
     </div>
