@@ -1,10 +1,15 @@
-import React from 'react'
+import React, { useState } from 'react'
 import Navbar from '../components/header/Navbar';
 import DisplayArtists from '../components/DisplayArtists';
 import SearchBar from '../components/SearchBar';
 
 
 function Artists() {
+  const [showResults, setShowResults] = useState(false);
+
+  const handleSearch = () => {
+    setShowResults(true);
+  };
 
   return (
     <div >
@@ -16,10 +21,10 @@ function Artists() {
           <div>
             <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
           </div>
-          <SearchBar />
+          <SearchBar onSearch={handleSearch} />
         </div>
         <div>
-          <DisplayArtists />
+        {!showResults && <DisplayArtists />}
         </div>
       </div>
     </div>

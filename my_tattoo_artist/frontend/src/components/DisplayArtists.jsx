@@ -27,7 +27,7 @@ function DisplayArtists() {
 
   return (
     <div>
-      <div className='artists-page'>
+      <div className='container'>
         <div className='custom-page'>
           {artists.map(artist => (
             <div key={artist.id} onClick={() => handleClick(artist)}>

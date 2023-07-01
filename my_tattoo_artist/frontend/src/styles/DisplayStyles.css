@@ -1,10 +1,10 @@
 .custom-styles-page {
     display: flex;
-    justify-content: space-between;
+    justify-content: center;
     flex-wrap: wrap;
     margin-top: 90px;
     margin-bottom: 40px;
-    column-gap: 25px;
+    column-gap: 40px;
 }
 
 .card-style {

@@ -1,10 +1,15 @@
+import { useState } from 'react';
 import CardHomeInfo from '../components/CardHomeInfo';
 import SearchBar from '../components/SearchBar';
 import Navbar from '../components/header/Navbar';
 import '../styles/Home.css'
 
 function Home() {
+  const [showResults, setShowResults] = useState(false);
 
+  const handleSearch = () => {
+    setShowResults(true);
+  };
 
   return (
     <div>
@@ -16,10 +21,10 @@ function Home() {
           <h1 className='home-title'>Trouve le tatoueur qui te convient</h1>
         </div>
         <div>
-          <SearchBar />
+          <SearchBar onSearch={handleSearch}/>
         </div>
         <div className='card-home'>
-          <CardHomeInfo />
+          {!showResults && <CardHomeInfo />}
         </div>
       </div>
     </div>
