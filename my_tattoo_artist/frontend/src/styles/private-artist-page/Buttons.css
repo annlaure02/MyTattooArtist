@@ -26,7 +26,9 @@
 /* icon modify */
 
 .pencil-icon {
-    color: #ba9d84;
+/*     color: #cac6c2;  */
+/*     color: #ba9d84; */
+    color: rgb(250, 94, 94);
     font-size: 29px;
 }
 

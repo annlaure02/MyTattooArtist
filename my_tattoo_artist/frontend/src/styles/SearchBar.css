@@ -3,7 +3,7 @@
 }
 
 .container.home-search {
-    width: 800px;
+    max-width: 800px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -27,6 +27,7 @@
 }
 
 .search-input-style {
+    display: fle;
     width: 135px;
     border: none;
     background: none;
@@ -35,7 +36,7 @@
     padding-left: 10px;
 }
 
-.search--icon .search__form {
+.search__form {
     display: flex;
 }
   

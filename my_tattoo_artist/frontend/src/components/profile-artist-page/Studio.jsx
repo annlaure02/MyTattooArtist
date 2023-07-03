@@ -71,7 +71,7 @@ function Studio({ dataUpdated, artist }) {
         <Modal
           show={show}
           onHide={handleClose}
-          id='artist-modal'
+          id='artist-modal-studio'
         >
           <div className='custom-modal-artist'>
             <form onSubmit={handleSubmit(onSubmit)}>

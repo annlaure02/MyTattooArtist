@@ -83,7 +83,7 @@ function Login() {
             <div>
               <Modal.Footer>
                 <div className='modal-button'>
-                  <Button variant="primary" className='custom-button-connexion' type='submit'>
+                  <Button variant="danger" className='custom-button-connexion' type='submit'>
                     Connexion</Button>
                   <Button variant="secondary" onClick={handleClose} className='custom-button-close'>
                     Fermer</Button>

@@ -41,11 +41,8 @@ function Connexion() {
 
   return (
     <>
-      <div
-        className="modal show"
-        style={{ display: 'block', position: 'initial' }}
-      >
-        <Modal.Dialog>
+      <div className="modal show">
+        <Modal.Dialog >
           <div className='custom-modal-inside'>
             <Modal.Header>
               <div className='modal-title'>
@@ -73,7 +70,7 @@ function Connexion() {
               <div>
                 <Modal.Footer>
                   <div className='modal-button'>
-                    <Button variant="primary" className='custom-button-connexion' type='submit'>
+                    <Button variant="danger" className='custom-button-pageconnexion' type='submit'>
                       Connexion</Button>
                   </div>
                 </Modal.Footer>

@@ -11,8 +11,12 @@
 }
 
 .header-title {
-    color: #dbd4e0;
+    color: #b7b4ba;
     font-size: 70px;
+}
+
+.info-artist {
+    padding-top: 24px;
 }
 .row.align-items-start.custom-line {
     margin-top: 50px;
@@ -26,23 +30,23 @@
 
 h1 {
     font-family: 'MonteCarlo Regular';
-    font-size: 52px;
+    font-size: 54px;
 }
 
 p {
-    padding-top: 8px;
-    font-size: 20px;
+    font-size: 23px;
 }
+
 p.artist-name {
+    padding-top: 10px;
     font-size: 37px;
 }
 
 .icon-phone{
-    height: 25px;
-    width: 22px;
+    height: 27px;
     color: #DCDCDC;
     margin-right: 10px;
-    padding-bottom: 4px;
+    padding-bottom: 7px;
 }
 
 .icon-mail{
@@ -74,9 +78,9 @@ p.artist-name {
 }
 .styles {
     background-color: #D3D3D3;
-    margin: 8px;
+    margin: 9px;
     border-radius: 30px;
-    height: 40px;
+    height: 42px;
 }
 
 .style-item {
@@ -84,7 +88,7 @@ p.artist-name {
     justify-content: center;
     align-items: center;
     color: black;
-    padding: 4px 10px 0 10px;
+    padding: 1px 12px 0 12px;
 }
 
 .album {

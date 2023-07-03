@@ -84,7 +84,6 @@ function TattooStyles({ dataUpdated, artist }) {
         <Modal
           show={show}
           onHide={handleClose}
-          id='artist-modal'
         >
           <div className='custom-modal-artist'>
             <form onSubmit={handleSubmit(onSubmit)}>

@@ -85,7 +85,7 @@ function ProfileArtistPage() {
                 </div>
               </div>
               <div className='col'>
-                <div className='info-artist'>
+                <div >
                   <p className='artist-name'>{artist.artist_name}</p>
                 </div>
               </div>

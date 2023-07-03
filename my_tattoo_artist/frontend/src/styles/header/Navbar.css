@@ -1,11 +1,9 @@
 .navbar {
   display: flex;
   justify-content: space-between;
-  align-items: center;
   font-size: 1.4rem;
   height: 170px;
   border-bottom: 2px solid white;
-
 }
 
 .navbar-logo {
@@ -26,16 +24,36 @@
   padding-top: 2px;
 }
 
+.menu-wrapper {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.menu-to-toggle {
+  display: flex;
+  align-items: center;
+  gap: 70px;
+}
+ul {
+  padding: 0;
+}
+.menu-content {
+  display: flex;
+  align-items: center;
+}
+
 .navbar-menu {
   display: flex;
+  align-items: center;
+  justify-content: center;
   list-style: none;
   gap: 20px;
 }
 
 .nav-item {
-  display: flex;
-  flex-direction: column;
-  padding-top: 90px;
+  display: block;
+  position: relative;
+  top: 40px;
   font-family: 'Ysabeau Office Regular';
   font-size: 25px;
 }
@@ -72,6 +90,14 @@
 }
 
 @media screen and (max-width: 1240px) {
+  .navbar-menu {
+    display: none;
+  }
+
+  .navbar-connection {
+    display: none;
+  }
+
   .menu-toggle {
     display: block;
     justify-content: left;
@@ -82,26 +108,31 @@
     font-size: 2rem;
   }
 
-  .navbar-menu {
-    display: none;
+  .menu-to-toggle.active {
+    background-color: rgb(80, 79, 79);
+    display: block;
+    position: absolute;
+    top: 40px;
+    min-width: 330px;
+    max-width: 500px;
+    height: 340px;
+    z-index: 1;
   }
 
-  .navbar-connection {
-    display: none;
-  }
   .navbar-menu.active {
     display: block;
-    position: relative;
     flex-direction: column;
-    background-color: black;
+    padding-left: 40px;
+    height: 150px;
     z-index: 1;
   }
-  
+
   .navbar-connection.active {
-    display: block;
+    display: flex;
+    flex-direction: column;
     align-items: center;
-    background-color: black;
     position: relative;
     z-index: 1;
+    background-color: rgb(80, 79, 79);
   }
 }

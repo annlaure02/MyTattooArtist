@@ -1,5 +1,6 @@
-#connect-modal {
-  top:10%;
+.modal.show {
+  display: block;
+  top: 80px;
 }
 
 .custom-modal-inside {
@@ -25,6 +26,10 @@
 }
 .custom-button-connexion {
   margin-right: 10px;
+}
+
+.custom-button-pageconnexion {
+  margin-right: 11rem;
 }
 
 .custom-button-close {

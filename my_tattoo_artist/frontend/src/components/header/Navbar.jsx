@@ -15,7 +15,7 @@ function Navbar(props) {
 
   return (
     <>
-      <div className="container">
+      <div>
         <div className="navbar-header">
           <nav className="navbar">
             <div className="navbar-logo">
@@ -27,28 +27,35 @@ function Navbar(props) {
                   My Tattoo Artist</h1>
               </Link>
             </div>
-            <div >
-              <button className='menu-toggle' onClick={handleMenuToggle}>
-                {menuOpen ? <FaTimes /> : <FaBars />}
-              </button>
-              <ul className={menuOpen ? "navbar-menu active" : "navbar-menu"}>
-                <li className="nav-item">
-                  <Link to='/' className="nav-links">Accueil</Link></li>
-                <li className="nav-item">
-                  <Link to='/artistes' className="nav-links">Artistes</Link></li>
-                {/* <li className="nav-item">
-              <Link to='/studios' className="nav-links">Studios</Link></li> */}
-                <li className="nav-item">
-                  <Link to='/types-de-tatouage' className="nav-links">Styles de tatouage</Link></li>
-              </ul>
-            </div>
-            <div className={menuOpen ? "navbar-connection active" : "navbar-connection"}>
-              <div className="text-artist">
-                <p>Je suis un artiste</p>
-              </div>
-              <div className="button-connect">
-                <Registration />
-                <Login />
+            <div className="menu-wrapper">
+              <div className={menuOpen ? "menu-to-toggle active" : "menu-to-toggle"}>
+                <button className='menu-toggle' onClick={handleMenuToggle}>
+                  {menuOpen ? <FaTimes /> : <FaBars />}
+                </button>
+                <div className="menu-content">
+                  <ul className={menuOpen ? "navbar-menu active" : "navbar-menu"}>
+                    <li className="nav-item active">
+                      <Link to='/' className="nav-links">
+                        Accueil</Link></li>
+                    <li className="nav-item active">
+                      <Link to='/artistes' className="nav-links">
+                        Artistes</Link></li>
+                    {/* <li className="nav-item">
+                      <Link to='/studios' className="nav-links">Studios</Link></li> */}
+                    <li className="nav-item active">
+                      <Link to='/types-de-tatouage' className="nav-links">
+                        Styles de tatouage</Link></li>
+                  </ul>
+                </div>
+                <div className={menuOpen ? "navbar-connection active" : "navbar-connection"}>
+                  <div className="text-artist">
+                    <p>Je suis un artiste</p>
+                  </div>
+                  <div className="button-connect">
+                    <Registration />
+                    <Login />
+                  </div>
+                </div>
               </div>
             </div>
           </nav>
