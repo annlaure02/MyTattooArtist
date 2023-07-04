@@ -1,8 +1,8 @@
 # MyTattooArtist
-### Portfolio Project
+### 📌 Portfolio Project
 The objective of this project is to bring together the greatest number of tattoo artists in France, for a person who wishes to be tattooed can find the tattoo artist who suits him and to put them in touch.
 
-## Technologies used
+## Technologies used 📝
 ### Backend
 * Python
 * Django
@@ -22,7 +22,7 @@ mysql@v8.0.33 or higher
 node@v18.16.0 or higher
 npm@v9.5.1 or higher
 ```
-## Getting Started
+## Getting Started 🚀
 Clone the repository
 ```
 $ git clone https://github.com/annlaure02/MyTattooArtist
@@ -63,16 +63,16 @@ $ npm install
 # Start the server
 $ npm start
 ```
-## Features
+## ⚒ Features
 ### As a Tattoo Artist:
-**Create an acount**  
-**Connects to his profile**  
-**Add and update personnal information on his page**  
+Create an acount  
+Connects to his profile  
+Add and update personnal information on his page  
 ### As a user:
-**Search an artist by his artist name, by the city, by the state, by tattoo style**
-**Display the information sheet of an artist**  
-**Display all artists available**  
-**description of Tattoo Styles**  
+Search an artist by his artist name, by the city, by the state, by tattoo style
+Display the information sheet of an artist  
+Display all artists available  
+description of Tattoo Styles  
 
 ## Authors
 * Claudia Bura
