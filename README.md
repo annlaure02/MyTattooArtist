@@ -65,14 +65,14 @@ $ npm start
 ```
 ## Features
 ### As a Tattoo Artist:
-**Create an acount**
-**Connects to his profile**
-**Add and update personnal information on his page**
-#### As a user:
+**Create an acount**  
+**Connects to his profile**  
+**Add and update personnal information on his page**  
+### As a user:
 **Search an artist by his artist name, by the city, by the state, by tattoo style**
-**Display the information sheet of an artist**
-**Display all artists available**
-**description of Tattoo Styles**
+**Display the information sheet of an artist**  
+**Display all artists available**  
+**description of Tattoo Styles**  
 
 ## Authors
 * Claudia Bura
