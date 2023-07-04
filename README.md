@@ -1,8 +1,9 @@
 # MyTattooArtist
 ### 📌 Portfolio Project
 The objective of this project is to bring together the greatest number of tattoo artists in France, for a person who wishes to be tattooed can find the tattoo artist who suits him and to put them in touch.
+![Capture d’écran du 2023-07-04 10-34-28](https://github.com/annlaure02/MyTattooArtist/assets/113631115/541f0abf-3d10-43e8-9ed3-5d5ac792c394)
 
-## Technologies used 📝
+## 💻 Technologies used
 ### Backend
 * Python
 * Django
@@ -15,14 +16,14 @@ The objective of this project is to bring together the greatest number of tattoo
 * CSS
 * Bootstrap
 
-## Requirements
+## 📝 Requirements
 ```
 python@v3.8 or higher
 mysql@v8.0.33 or higher
 node@v18.16.0 or higher
 npm@v9.5.1 or higher
 ```
-## Getting Started 🚀
+## 🚀 Getting Started
 Clone the repository
 ```
 $ git clone https://github.com/annlaure02/MyTattooArtist
@@ -74,6 +75,6 @@ Display the information sheet of an artist
 Display all artists available  
 description of Tattoo Styles  
 
-## Authors
+## 🖊 Authors
 * Claudia Bura
 * Anne-Laure Guilloux
